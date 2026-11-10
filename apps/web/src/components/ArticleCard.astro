@@ -11,7 +11,6 @@ const { article: a } = Astro.props
         ? <img src={a.heroImage.url} alt={a.heroImage.alt} width={a.heroImage.width} height={a.heroImage.height} loading="lazy" />
         : <div class="card__placeholder" aria-hidden="true"></div>}
     </div>
-    <p class="eyebrow">Trang {a.page}</p>
     <TwoToneTitle title={a.title} accent={a.titleAccent} as="h3" size="md" />
     {a.sapo && <p class="card__sapo">{a.sapo}</p>}
   </a>

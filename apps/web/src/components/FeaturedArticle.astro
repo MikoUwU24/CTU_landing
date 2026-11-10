@@ -12,7 +12,7 @@ const { article: a } = Astro.props
       </div>
     )}
     <div class="feat__text">
-      <p class="eyebrow">Tiêu điểm · Trang {a.page}</p>
+      <p class="eyebrow">Tiêu điểm</p>
       <TwoToneTitle title={a.title} accent={a.titleAccent} kicker={a.kicker} as="h2" size="xl" />
       {a.sapo && <p class="feat__sapo">{a.sapo}</p>}
     </div>
