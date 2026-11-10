@@ -17,6 +17,16 @@ export function shouldRebuild(args: { doc: Status; previousDoc?: Status; operati
   return now === 'published' || before === 'published'
 }
 
+/** Looks up the main row's status; on any lookup failure logs and returns undefined so the caller rebuilds. */
+export async function resolvePublishedNow(lookup: () => Promise<Status>): Promise<boolean | undefined> {
+  try {
+    return (await lookup())?._status === 'published'
+  } catch (e) {
+    console.error('[rebuild] published-status lookup failed; rebuilding', e)
+    return undefined
+  }
+}
+
 export function createRebuildTrigger(opts: {
   url: () => string | undefined
   delayMs: number

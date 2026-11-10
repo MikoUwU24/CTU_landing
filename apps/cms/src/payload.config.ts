@@ -9,6 +9,7 @@ import { Articles } from './collections/Articles'
 import { Issues } from './collections/Issues'
 import { Media } from './collections/Media'
 import { Users } from './collections/Users'
+import { migrations } from './migrations'
 import { Foreword } from './globals/Foreword'
 import { Masthead } from './globals/Masthead'
 import { RebuildStatus } from './globals/RebuildStatus'
@@ -28,9 +29,13 @@ export default buildConfig({
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: { outputFile: path.resolve(dirname, 'payload-types.ts') },
-  db: postgresAdapter({ pool: { connectionString: process.env.DATABASE_URL || '' } }),
+  db: postgresAdapter({
+    pool: { connectionString: process.env.DATABASE_URL || '' },
+    push: false,
+    prodMigrations: migrations,
+  }),
   sharp,
-  cors: '*',
+  ...(process.env.PAYLOAD_PUBLIC_SERVER_URL ? { serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL } : {}),
   plugins: [
     vercelBlobStorage({
       enabled: Boolean(process.env.BLOB_READ_WRITE_TOKEN),

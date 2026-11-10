@@ -1,6 +1,6 @@
 import type { CollectionAfterChangeHook, CollectionAfterDeleteHook, GlobalAfterChangeHook, Payload } from 'payload'
 import { waitUntil } from '@vercel/functions'
-import { createRebuildTrigger, shouldRebuild } from '../lib/rebuild'
+import { createRebuildTrigger, resolvePublishedNow, shouldRebuild } from '../lib/rebuild'
 
 let payloadRef: Payload | undefined
 
@@ -23,8 +23,9 @@ export const rebuildAfterChange: CollectionAfterChangeHook = async ({ collection
   // unpublish both look like published -> draft, so read the main row (draft: false) to tell them apart.
   let publishedNow: boolean | undefined
   if (doc?._status === 'draft' && previousDoc?._status === 'published') {
-    const main = await req.payload.findByID({ collection: collection.slug, id: doc.id, draft: false, depth: 0, req })
-    publishedNow = (main as { _status?: string })._status === 'published'
+    publishedNow = await resolvePublishedNow(
+      () => req.payload.findByID({ collection: collection.slug, id: doc.id, draft: false, depth: 0, req }) as Promise<{ _status?: string }>,
+    )
   }
   if (shouldRebuild({ doc, previousDoc, operation, publishedNow })) trigger.request()
   return doc

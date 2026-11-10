@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { createRebuildTrigger, shouldRebuild } from '../src/lib/rebuild'
+import { createRebuildTrigger, resolvePublishedNow, shouldRebuild } from '../src/lib/rebuild'
 
 describe('shouldRebuild', () => {
   it('fires when publishing', () => {
@@ -85,5 +85,20 @@ describe('createRebuildTrigger', () => {
     const t = createRebuildTrigger({ url: () => 'https://hook', delayMs: 10, fetchFn: vi.fn(), onResult: vi.fn(), keepAlive })
     t.request()
     expect(keepAlive).toHaveBeenCalledWith(expect.any(Promise))
+  })
+})
+
+describe('resolvePublishedNow', () => {
+  it('returns true when main row is still published', async () => {
+    expect(await resolvePublishedNow(async () => ({ _status: 'published' }))).toBe(true)
+  })
+  it('returns false when main row is a draft', async () => {
+    expect(await resolvePublishedNow(async () => ({ _status: 'draft' }))).toBe(false)
+  })
+  it('returns undefined (rebuild) and logs when the lookup throws', async () => {
+    const err = vi.spyOn(console, 'error').mockImplementation(() => {})
+    expect(await resolvePublishedNow(async () => { throw new Error('db down') })).toBeUndefined()
+    expect(err).toHaveBeenCalled()
+    err.mockRestore()
   })
 })
