@@ -1,0 +1,24 @@
+---
+import '../styles/global.css'
+import Footer from '../components/Footer.astro'
+import Masthead from '../components/Masthead.astro'
+interface Props { title: string; description?: string; compactMasthead?: boolean }
+const { title, description = 'Tạp chí Mỹ thuật — Fine Arts Magazine, Hội Mỹ thuật Việt Nam', compactMasthead = false } = Astro.props
+---
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <link rel="icon" href="/brand/masthead.png" />
+  </head>
+  <body>
+    <Masthead compact={compactMasthead} />
+    <main><slot /></main>
+    <Footer />
+  </body>
+</html>

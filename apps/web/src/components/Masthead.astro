@@ -1,0 +1,49 @@
+---
+import { getCurrentIssue } from '../lib/cms'
+interface Props { compact?: boolean }
+const { compact = false } = Astro.props
+const issue = await getCurrentIssue()
+---
+<header class:list={['mh', { 'mh--compact': compact }]}>
+  <img class="mh__cloud mh__cloud--top" src="/brand/cloud-top.png" alt="" aria-hidden="true" />
+  <img class="mh__cloud mh__cloud--right" src="/brand/cloud-right.png" alt="" aria-hidden="true" />
+  <div class="wrap mh__inner">
+    <a href="/" class="mh__logo" aria-label="Tạp chí Mỹ thuật — Trang chủ">
+      <img src="/brand/masthead.png" alt="Tạp chí Mỹ thuật — Fine Arts Magazine" />
+    </a>
+    {issue && (
+      <div class="mh__badge" aria-label={`Số ${issue.number}, kỳ ${issue.period}`}>
+        <span class="mh__badge-label">Số</span>
+        <span class="mh__badge-num">{issue.number}</span>
+        <span class="mh__badge-period">{issue.period}</span>
+      </div>
+    )}
+  </div>
+  <nav class="wrap mh__nav" aria-label="Chính">
+    <a href="/">Trang chủ</a>
+    <a href="/muc-luc">Mục lục</a>
+    <a href="/#loi-ngo">Lời ngỏ</a>
+  </nav>
+</header>
+<style>
+  .mh { position: relative; overflow: hidden; padding-block: 24px 0; border-bottom: 3px double var(--maroon); }
+  .mh__cloud { position: absolute; pointer-events: none; opacity: 0.9; }
+  .mh__cloud--top { top: -40px; left: -60px; width: min(55vw, 560px); }
+  .mh__cloud--right { right: -80px; bottom: -30px; width: min(45vw, 460px); }
+  .mh__inner { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .mh__logo img { width: clamp(220px, 48vw, 520px); }
+  .mh__badge {
+    flex: none; width: clamp(76px, 12vw, 120px); aspect-ratio: 1; border-radius: 50%;
+    border: 3px solid var(--maroon); display: grid; place-content: center; text-align: center; line-height: 1;
+    color: var(--maroon); background: color-mix(in srgb, var(--cream) 85%, transparent);
+  }
+  .mh__badge-label { font-family: var(--font-display); font-size: 0.8em; text-transform: uppercase; }
+  .mh__badge-num { font-family: var(--font-display); font-weight: 700; color: var(--orange); font-size: clamp(1.6rem, 4vw, 2.6rem); }
+  .mh__badge-period { font-size: 0.7rem; margin-top: 2px; }
+  .mh__nav { position: relative; display: flex; gap: 24px; padding-block: 14px; font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.08em; font-size: var(--step--1); }
+  .mh__nav a { text-decoration: none; color: var(--maroon); }
+  .mh__nav a:hover { color: var(--orange); }
+  .mh--compact { padding-block: 12px 0; }
+  .mh--compact .mh__logo img { width: clamp(160px, 30vw, 300px); }
+  .mh--compact .mh__badge { width: 70px; }
+</style>

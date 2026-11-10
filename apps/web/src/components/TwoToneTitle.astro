@@ -1,0 +1,17 @@
+---
+import { splitTitle } from '../lib/title'
+interface Props { title: string; accent?: string | null; kicker?: string | null; as?: 'h1' | 'h2' | 'h3'; size?: 'xl' | 'lg' | 'md' }
+const { title, accent, kicker, as: Tag = 'h2', size = 'lg' } = Astro.props
+const parts = splitTitle(title, accent)
+---
+<Tag class={`ttitle ttitle--${size}`}>
+  {kicker && <span class="ttitle__kicker">{kicker}</span>}
+  {parts.map((p) => (p.accent ? <span class="accent">{p.text}</span> : p.text))}
+</Tag>
+<style>
+  .ttitle { text-wrap: balance; }
+  .ttitle--xl { font-size: var(--step-4); }
+  .ttitle--lg { font-size: var(--step-3); }
+  .ttitle--md { font-size: var(--step-1); }
+  .ttitle__kicker { display: block; font-size: 0.4em; color: var(--orange); letter-spacing: 0.06em; margin-bottom: 0.2em; }
+</style>
