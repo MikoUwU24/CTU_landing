@@ -20,4 +20,9 @@ describe('paragraphsToLexical', () => {
     expect(kinds.filter((k) => k === 'image')).toHaveLength(1)
     expect(kinds.indexOf('pullQuote')).toBe(3)
   })
+  it('keeps leftover images: 2 body paragraphs + 3 images -> 3 image blocks', () => {
+    const { root } = paragraphsToLexical(['a', 'b'], { imageIds: [1, 2, 3] }) as unknown as { root: { children: N[] } }
+    const imgs = root.children.filter((n) => n.type === 'block' && n.fields?.blockType === 'image')
+    expect(imgs.map((n) => n.fields?.media)).toEqual([1, 2, 3])
+  })
 })

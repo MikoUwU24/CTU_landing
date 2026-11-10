@@ -32,5 +32,7 @@ export function paragraphsToLexical(
     }
     b++
   })
+  // leftover images (more images than spacing slots) go at the end instead of being dropped
+  for (const id of imgs) children.push(block({ id: `img-end-${id}`, blockName: '', blockType: 'image', media: id, width: 'column' }))
   return { root: { type: 'root', children, direction: 'ltr', format: '', indent: 0, version: 1 } }
 }

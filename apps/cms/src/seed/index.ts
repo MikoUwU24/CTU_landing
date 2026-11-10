@@ -1,9 +1,14 @@
+/**
+ * Seeds issue 034 from seed/content.json + seed/images. Idempotent and safe to rerun: media is matched by
+ * filename, issue by number, articles by slug, globals are overwritten. Transient connection/transaction
+ * errors are retried (3 attempts); a failed run can simply be rerun.
+ */
 import { existsSync, readFileSync } from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import { getPayload, type Payload } from 'payload'
 import config from '../payload.config'
-import type { Article } from '../payload-types'
+import type { Article, Foreword } from '../payload-types'
 import { paragraphsToLexical } from './lexical'
 import { validateContent } from './validate'
 
@@ -11,7 +16,33 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../.
 const seedDir = path.join(root, 'seed')
 const dryRun = process.argv.includes('--dry-run')
 
-async function upsertMedia(payload: Payload, file: string, alt: string) {
+const RETRYABLE = new Set(['25P03', '57P01', '08006', '08003', 'ECONNRESET', 'ETIMEDOUT', 'EPIPE'])
+
+function isRetryable(e: unknown): boolean {
+  for (let x = e as { code?: string; cause?: unknown } | undefined, i = 0; x && i < 5; x = x.cause as typeof x, i++) {
+    if (x.code && RETRYABLE.has(x.code)) return true
+  }
+  return false
+}
+
+// Retry only on connection/transaction errors (e.g. Neon idle-in-transaction timeout during a slow Blob upload).
+async function withRetry<T>(label: string, fn: () => Promise<T>, attempts = 3): Promise<T> {
+  for (let i = 1; ; i++) {
+    try {
+      return await fn()
+    } catch (e) {
+      if (i >= attempts || !isRetryable(e)) throw e
+      console.warn(`retry ${i}/${attempts - 1} after transient error: ${label}`)
+      await new Promise((r) => setTimeout(r, 1000 * i))
+    }
+  }
+}
+
+function upsertMedia(payload: Payload, file: string, alt: string) {
+  return withRetry(`media ${file}`, () => upsertMediaOnce(payload, file, alt))
+}
+
+async function upsertMediaOnce(payload: Payload, file: string, alt: string) {
   const existing = await payload.find({ collection: 'media', where: { filename: { equals: file } }, limit: 1 })
   if (existing.docs[0]) return existing.docs[0].id
   const filePath = path.join(seedDir, 'images', file)
@@ -58,15 +89,17 @@ async function main() {
       body: paragraphsToLexical(a.paragraphs, { pullQuote: a.isLorem ? null : a.pullQuote, imageIds: bodyImages }) as Article['body'],
       _status: 'published' as const,
     }
-    const found = await payload.find({ collection: 'articles', where: { slug: { equals: a.slug } }, limit: 1, draft: true })
-    if (found.docs[0]) await payload.update({ collection: 'articles', id: found.docs[0].id, data })
-    else await payload.create({ collection: 'articles', data })
+    await withRetry(`article ${a.slug}`, async () => {
+      const found = await payload.find({ collection: 'articles', where: { slug: { equals: a.slug } }, limit: 1, draft: true })
+      if (found.docs[0]) await payload.update({ collection: 'articles', id: found.docs[0].id, data })
+      else await payload.create({ collection: 'articles', data })
+    })
     console.log('article', a.page, a.slug)
   }
 
   await payload.updateGlobal({
     slug: 'foreword',
-    data: { title: c.foreword.title, signature: c.foreword.signature, body: paragraphsToLexical(c.foreword.paragraphs) as Article['body'] },
+    data: { title: c.foreword.title, signature: c.foreword.signature, body: paragraphsToLexical(c.foreword.paragraphs) as Foreword['body'] },
   })
   await payload.updateGlobal({
     slug: 'masthead',
