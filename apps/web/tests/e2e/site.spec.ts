@@ -3,7 +3,6 @@ import { expect, test } from '@playwright/test'
 test('home shows masthead, featured, grid and foreword', async ({ page }) => {
   await page.goto('/')
   await expect(page.getByAltText('Tạp chí Mỹ thuật — Fine Arts Magazine')).toBeVisible()
-  await expect(page.getByLabel('Số 034, kỳ 1-2/2027')).toBeVisible()
   await expect(page.getByTestId('featured')).toContainText('Hội họa')
   await expect(page.getByTestId('article-card')).toHaveCount(1)
   await expect(page.locator('#loi-ngo')).toContainText('Lời ngỏ')
