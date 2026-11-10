@@ -1,0 +1,4 @@
+pymupdf==1.26.*
+psd-tools==1.10.*
+pillow==11.*
+pytest==8.*

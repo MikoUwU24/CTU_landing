@@ -6,3 +6,8 @@ node_modules/
 .vercel/
 dist/
 .next/
+seed/images/
+__pycache__/
+.pytest_cache/
+test-results/
+playwright-report/
