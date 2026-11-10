@@ -94,11 +94,13 @@ export interface Config {
   globals: {
     foreword: Foreword;
     masthead: Masthead;
+    'site-settings': SiteSetting;
     'rebuild-status': RebuildStatus;
   };
   globalsSelect: {
     foreword: ForewordSelect<false> | ForewordSelect<true>;
     masthead: MastheadSelect<false> | MastheadSelect<true>;
+    'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
     'rebuild-status': RebuildStatusSelect<false> | RebuildStatusSelect<true>;
   };
   locale: null;
@@ -487,6 +489,23 @@ export interface Masthead {
   createdAt?: string | null;
 }
 /**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-settings".
+ */
+export interface SiteSetting {
+  id: number;
+  /**
+   * Mặc định 248px (khoảng 1/5 khung trang).
+   */
+  logoWidthDesktop: number;
+  /**
+   * Mặc định 160px.
+   */
+  logoWidthMobile: number;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
  * Kết quả lần gần nhất CMS gọi webhook cập nhật trang báo.
  *
  * This interface was referenced by `Config`'s JSON-Schema
@@ -536,6 +555,17 @@ export interface MastheadSelect<T extends boolean = true> {
   website?: T;
   email?: T;
   coverCredit?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-settings_select".
+ */
+export interface SiteSettingsSelect<T extends boolean = true> {
+  logoWidthDesktop?: T;
+  logoWidthMobile?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

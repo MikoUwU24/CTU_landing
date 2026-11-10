@@ -11,3 +11,4 @@ export type Masthead = {
   publisher?: string | null; address?: string | null; phone?: string | null
   website?: string | null; email?: string | null; coverCredit?: string | null
 }
+export type SiteSettings = { logoWidthDesktop: number; logoWidthMobile: number }

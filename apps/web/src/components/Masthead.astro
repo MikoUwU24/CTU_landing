@@ -1,8 +1,10 @@
 ---
+import { getSiteSettings } from '../lib/cms'
 interface Props { compact?: boolean }
 const { compact = false } = Astro.props
+const { logoWidthDesktop, logoWidthMobile } = await getSiteSettings()
 ---
-<header class:list={['mh', { 'mh--compact': compact }]}>
+<header class:list={['mh', { 'mh--compact': compact }]} style={`--logo-w-d: ${logoWidthDesktop}px; --logo-w-m: ${logoWidthMobile}px`}>
   <img class="mh__cloud mh__cloud--top" src="/brand/cloud-top.webp" width="1143" height="551" alt="" aria-hidden="true" />
   <img class="mh__cloud mh__cloud--right" src="/brand/cloud-right.webp" width="706" height="396" alt="" aria-hidden="true" />
   <div class="wrap mh__inner">
@@ -27,7 +29,8 @@ const { compact = false } = Astro.props
   .mh__cloud--top { top: -40px; left: -60px; width: min(55vw, 560px); }
   .mh__cloud--right { right: -80px; bottom: -30px; width: min(45vw, 460px); }
   .mh__inner { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-  .mh__logo img { height: auto; width: clamp(220px, 48vw, 520px); }
+  .mh__logo img { height: auto; width: min(var(--logo-w-m), 100%); }
+  @media (min-width: 768px) { .mh__logo img { width: var(--logo-w-d); } }
   .mh__bar { position: relative; margin-top: 16px; background: var(--maroon); }
   .mh__nav {
     display: flex; align-items: stretch; overflow-x: auto; scrollbar-width: none;
@@ -39,5 +42,4 @@ const { compact = false } = Astro.props
   .mh__nav .mh__home { background: var(--orange); color: #fff; padding-inline: 14px; }
   .mh__nav .mh__home:hover { background: var(--orange-text); }
   .mh--compact { padding-block: 12px 0; }
-  .mh--compact .mh__logo img { height: auto; width: clamp(160px, 30vw, 300px); }
 </style>
