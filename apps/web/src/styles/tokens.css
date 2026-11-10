@@ -1,6 +1,6 @@
 :root {
   /* Portal palette (measured from the reference news portal) */
-  --bg: #F7F8F9;          /* page background */
+  --bg: #F1DEBE;          /* page background — cream from the print cover */
   --box: #FFFFFF;         /* content boxes */
   --ink: #333333;         /* body text */
   --ink-soft: #555555;    /* excerpts */
