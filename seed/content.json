@@ -1,0 +1,283 @@
+{
+  "issue": {
+    "number": "034",
+    "period": "1-2/2027",
+    "coverImage": "cover.jpg"
+  },
+  "foreword": {
+    "title": "Lời ngỏ",
+    "paragraphs": [
+      "Hội họa Việt Nam đương đại là sự giao thoa giữa những giá trị truyền thống và tinh thần sáng tạo mới. Mỗi tác phẩm không chỉ phản ánh đời sống mà còn thể hiện tâm hồn, bản sắc và góc nhìn riêng của người nghệ sĩ.",
+      "Qua số tạp chí này, chúng tôi mong muốn đưa độc giả đến gần hơn với vẻ đẹp, sự đa dạng và sức sống của mỹ thuật Việt Nam hôm nay."
+    ],
+    "signature": "Trân trọng!"
+  },
+  "masthead": {
+    "board": [
+      {
+        "role": "Tổng biên tập",
+        "names": [
+          "Nguyễn Thị Cẩm Tú"
+        ]
+      },
+      {
+        "role": "Phó tổng biên tập",
+        "names": [
+          "Hà Thị Huệ"
+        ]
+      },
+      {
+        "role": "Thư ký tòa soạn",
+        "names": [
+          "Nguyễn Thị Tuyết"
+        ]
+      },
+      {
+        "role": "Trưởng ban biên tập",
+        "names": [
+          "Trần Việt Anh Cường"
+        ]
+      },
+      {
+        "role": "Phó ban biên tập",
+        "names": [
+          "Nguyễn Thị Thùy Linh"
+        ]
+      },
+      {
+        "role": "Biên tập",
+        "names": [
+          "Nguyễn Huy Nhật",
+          "Nguyễn Huy Chủ",
+          "Tạ Thị Ngánh"
+        ]
+      },
+      {
+        "role": "Ban dịch thuật",
+        "names": [
+          "Nguyễn Thu Đông",
+          "Tạ Thế Tâm"
+        ]
+      }
+    ],
+    "publisher": "Nhà xuất bản Tuổi Trẻ",
+    "address": "161B Lý Chính Thắng, Phường Võ Thị Sáu, Quận 1, TP Hồ Chí Minh",
+    "phone": "0982093005",
+    "website": "tapchimithuat.vn",
+    "email": "tapchimythuat.gmail.com",
+    "coverCredit": "Bìa sử dụng tranh của họa sĩ Vũ Đình Tuấn"
+  },
+  "articles": [
+    {
+      "slug": "hoi-hoa-viet-nam-duong-dai",
+      "title": "Hội họa Việt Nam đương đại",
+      "titleAccent": "Việt Nam",
+      "page": 3,
+      "featured": true,
+      "sapo": "NDO - Dẫu hòa vào dòng chảy của mỹ thuật đương đại, các họa sĩ sáng tác dòng tranh hiện thực vẫn giữ lối đi riêng, mang đến sự sống động qua từng ý tưởng, màu sắc và chất liệu.",
+      "tocBlurb": "Khám phá ngôn ngữ tạo hình và dấu ấn sáng tạo của nghệ sĩ hôm nay.",
+      "heroImage": "hoi-hoa-viet-nam-duong-dai-3.jpg",
+      "images": [
+        "hoi-hoa-viet-nam-duong-dai-1.jpg",
+        "hoi-hoa-viet-nam-duong-dai-2.jpg",
+        "hoi-hoa-viet-nam-duong-dai-3.jpg"
+      ],
+      "paragraphs": [
+        "Triển lãm \"Hiện thực +\" vừa diễn ra tại Bảo tàng Mỹ thuật Việt Nam đã giới thiệu đến công chúng gân 50 bức tranh của các họa sĩ nhóm Hiện thực gồm: Phạm Bình Chương, Nguyễn Toán, Lê Thế Anh, Nguyễn Văn Bảy, Đoàn Văn Tới, Lưu Tuyền, Lê Cù Thuẩn và Vũ Ngọc Vĩnh; cùng sự tham gia của một số tác giả khác là Trịnh Lữ, Văn Cao, .....",
+        "Khơi dậy sức sống của vạn vật Mỗi tác phấm được trưng bày tại Triến lãm \"Hiện thực +\" đều mang đậm dấu cá nhân và phong cách sáng tạo của các họa sĩ. Từ cảnh vật, thiên nhiên, đến hình ảnh con người đều được họ khắc họa một cách sinh động và chân thực, thậm chí là siêu thực. Càng vẽ những điều giản dị ở cách sinh động và chân thực, thậm chí là siêu thực.",
+        "Càng vẽ những điều giản dị ở đời thường băng tình yêu chân thành thì cái đẹp càng được thế hiện thật trong trẻo. Họa sĩ là người biết khơi dậy nét sống từ tĩnh vật, để rồi mỗi tác phẩm ra đời đều là kêt tinh của sự giao đãi giữa vạn vật chung quanh và thế giới tâm hôn của người vẽ đãi giữa vạn vật chung quanh và thế giới tâm hôn của người vẽ. Lê Cù Thuần trung thành với lối vẽ cổ điển, đặt mình vào cuộc sống của người dân tộc thiếu số.",
+        "Cùng chủ đề đó, nhưng Lê Thế Anh tạo sự sống dộng qua những gam màu rực rỡ, phối với sắc độ tương phản để tô điểm cho đôi mắt trong, chiếc má ửng hồng của những đứa trẻ vùng ửng hồng của những đứa trẻ vùng cao. Phạm Bình Chương tập trung vào những thay đối của cuộc sống đô thị. Vũ Ngọc Vĩnh vẫn trăn trở về thân phận người phụ nữ hiện đại. Nguyễn Văn Chung chạm đến thế giới siêu thực với \"Địa đàng\".Ở không gian khác của triến lãm, Đoàn Văn Tới tiếp tục khai thác đề tài Phật pháp dưới hình thức gần gũi, trẻ trung hơn trước. Bút pháp của Nguyễn Toán ngày càng chắt lọc kỹ lưỡng về hình, màu và ý tứ. Nguyễn Văn Bảy tìm về góc ao quê như tìm lại sự tĩnh lặng trong tâm hồn. Phật pháp dưới hình thức gần gũi, trẻ trung hơn trước. Bút pháp của Nguyễn Toán ngày càng chắt lọc kỹ lưỡng về hình, màu và ý tứ. Nguyễn Văn Bảy tìm về góc ao quê như tìm lại sự tĩnh lặng.",
+        "ửng hồng của những đứa trẻ vùng cao. Phạm Bình Chương tập trung vào những thay đối của cuộc sống đô thị. Vũ Ngọc Vĩnh vẫn trăn trở về thân phận người phụ nữ hiện đại. Nguyễn Văn Chung chạm đến thế giới siêu thực với \"Địa đàng\".Ở không gian khác của triến lãm, Đoàn Văn Tới tiếp tục khai thác đề tài Phật pháp dưới hình thức gần gũi, trẻ trung hơn trước. Bút pháp của Nguyễn Toán ngày càng chắt lọc kỹ lưỡng về hình, màu và ý tứ. Nguyễn Văn Bảy tìm về góc ao quê như tìm lại sự tĩnh lặng trong tâm hồn. Phật pháp dưới hình thức gần gũi, trẻ trung hơn trước. Bút pháp của Nguyễn Toán ngày càng chắt lọc kỹ lưỡng về hình, màu và ý tứ. Nguyễn Văn Bảy tìm về góc ao quê như tìm lại sự tĩnh lặng trong tâm hồn. Vẽ người, quả và hoa, tranh của Trịnh Lữ vẫn đầy cảm xúc. Lưu Tuyên bước ra khỏi vỏ bọc của nội tâm để đến với \"Thiên đường hoàn hảo\", chấp nhận sự hiển nhiên và hữu hạn của đời ửng hồng của những đứa trẻ vùng cao. Phạm Bình Chương tập trung vào những thay đối của cuộc sống đô thị. Vũ Ngọc Vĩnh vẫn trăn trở về thân phận người phụ nữ hiện đại. Nguyễn Văn Chung chạm đến thế giới siêu thực với \"Địa đàng\".Ở không gian khác của triến lãm, Đoàn Văn Tới tiếp tục khai thác vật mà anh khăc họa . Cốt lõi của vẽ hiện thực là diễn tả cuộc sống. Tuy nhiên, nếu chỉ dừng lại ở bắt chước hay sao chép một cách khô khan thì hắn rằng trường phái này đã không có sức sống mạnh mẽ trong hội họa đến thế. Đôi khi, hiện thực chỉ là cái cớ để các họa sĩ thăm dò vào thế giới nội tâm của chính mình qua cách phản ánh những sự vật, sự việc được đưa vào tranh. Họa sĩ Trịnh Lữ cho biết: \"Càng vẽ những điều giản dị ở đời thường bằng tình yêu chân thành thì cái đẹp càng được thế hiện thật trong trẻo. Họa sĩ là người biết khơi dậy nét sống từ tĩnh vật, để rồi môi tác phấm ra đời đều là kết tinh của sự giao đãi giữa vạn vật chung quanh và thế giới tâm hôn của người vẽ.",
+        "vật mà anh khăc họa . Cốt lõi của vẽ hiện thực là diễn tả cuộc sống. Tuy nhiên, nếu chỉ dừng lại ở bắt chước hay sao chép một cách khô khan thì hắn rằng trường phái này đã không có sức sống mạnh mẽ trong hội họa đến thế. Đôi khi, hiện thực chỉ là cái cớ để các họa sĩ thăm dò vào thế giới nội tâm của chính mình qua cách phản ánh những sự vật, sự việc được đưa vào tranh. Họa sĩ Trịnh Lữ cho biết: \"Càng vẽ những điều giản dị ở đời thường bằng tình yêu chân thành thì cái đẹp càng ửng hồng của những đứa trẻ vùng cao. Phạm Bình Chương tập trung vào những thay đối của cuộc sống đô thị. Vũ Ngọc Vĩnh vẫn trăn trở về thân phận người phụ nữ hiện đại. Nguyễn Văn Chung chạm đến thế giới siêu thực với \"Địa đàng\".Ở không gian khác của triến lãm, Đoàn Văn Tới tiếp tục khai thác đề tài Phật pháp dưới hình thức gần gũi, trẻ trung hơn trước. Bút pháp của Nguyễn Toán ngày càng chắt lọc kỹ lưỡng về hình, màu và ý tứ. Nguyễn Văn Bảy tìm về góc ao quê như tìm lại sự tĩnh lặng trong tâm hồn. Phật pháp dưới hình thức gần gũi, trẻ trung hơn trước. Bút pháp của Nguyễn Toán ngày càng chắt lọc kỹ lưỡng về hình, màu và ý tứ. Nguyễn Văn Bảy tìm về góc ao quê như tìm lại sự tĩnh lặng trong tâm hồn. Vẽ người, quả và hoa, tranh của Trịnh Lữ vẫn đầy cảm xúc. Lưu Tuyên bước ra khỏi vỏ bọc của nội tâm để đến với \"Thiên đường hoàn hảo\", chấp nhận sự hiển nhiên và hữu hạn của đời người qua những nét nứt vỡ trên bề mặt sự vật mà anh khăc họa ửng hồng của những đứa trẻ vùng cao. Phạm Bình Chương tập trung vào những thay đối của cuộc sống đô thị. Vũ Ngọc Vĩnh vẫn trăn trở về thân phận người phụ nữ hiện đại. Nguyễn"
+      ],
+      "pullQuote": "NDO - Dẫu hòa vào dòng chảy của mỹ thuật đương đại, các họa sĩ sáng tác dòng tranh hiện thực vẫn giữ lối đi riêng, mang đến sự sống động qua từng ý tưởng, màu sắc và chất liệu.",
+      "isLorem": false
+    },
+    {
+      "slug": "sac-mau-ki-uc",
+      "title": "Sắc màu kí ức",
+      "titleAccent": "Sắc màu",
+      "page": 5,
+      "featured": false,
+      "sapo": "Những gam màu cũ, những miền kí ức vẫn còn hiện hữu trong tranh.",
+      "tocBlurb": "Những gam màu cũ, những miền kí ức vẫn còn hiện hữu trong tranh.",
+      "heroImage": "sac-mau-ki-uc-4.jpg",
+      "images": [
+        "sac-mau-ki-uc-1.jpg",
+        "sac-mau-ki-uc-2.jpg",
+        "sac-mau-ki-uc-3.jpg",
+        "sac-mau-ki-uc-4.jpg",
+        "sac-mau-ki-uc-5.jpg"
+      ],
+      "paragraphs": [
+        "Trong hội họa, ký ức không chỉ tồn tại qua những hình ảnh được lưu giữ trong tâm trí, mà còn được tái hiện bằng màu sắc, đường nét và cảm xúc. Một mái nhà cũ, con đường làng hay bóng dáng người thân đều có thể trở thành nguồn cảm hứng cho những tác phẩm giàu sức gợi.",
+        "Khác với việc sao chép hiện thực, người họa sĩ thường tái tạo ký ức theo cách riêng. Màu sắc có thể được biến đổi, hình thể có thể giản lược, còn không gian đôi khi trở nên mơ hồ. Chính sự chủ quan ấy tạo nên chiều sâu cảm xúc, khiến mỗi bức tranh mang một câu chuyện",
+        "Trong mỹ thuật Việt Nam, hình ảnh làng quê, thiên nhiên và đời sống thường nhật xuất hiện như những mảnh ghép của ký ức tập thể. Qua góc nhìn của từng nghệ sĩ, những điều bình dị trở nên gần gũi nhưng cũng đầy mới mẻ. Quá khứ không còn là điều đã qua, mà tiếp tục hiện diện trong cách con người cảm nhận cuộc sống hôm nay.thể. Qua góc nhìn của từng nghệ sĩ, những điều bình dị trở nên gần gũi nhưng cũng đầy mới mẻ. Quá khứ không còn là điều đã qua, mà tiếp tục hiện diện trong cách con người cảm nhận cuộc sống hôm nay.",
+        "Bên cạnh chất liệu truyền thống và sơn mài, nhiều họa sĩ sử dụng sơn dầu, acrylic cùng những phương pháp thể hiện đương đại để khám phá thế giới nội tâm. Sự kết hợp giữa chất liệu và cảm xúc mở ra những cách kể chuyện đa dạng, vượt khỏi giới hạn của hình ảnh đơn thuần.",
+        "Hội họa vì thế trở thành chiếc cầu nối giữa cá nhân và cộng đồng, giữa những trải nghiệm riêng tư và ký ức chung của một thế hệ. Mỗi tác phẩm không chỉ lưu giữ những gì đã qua, mà còn giúp người xem tìm thấy chính mình trong những sắc màu tưởng chừng xa lạ.",
+        "Đôi khi, điều khiến một bức tranh sống mãi không phải là những gì ta nhìn thấy, mà là những gì ta nhớ về nó. những cách kể chuyện đa dạng, vượt khỏi giới hạn của hình ảnh đơn thuần.Hội họa vì thế trở thành chiếc cầu nối giữa cá nhân.. và cộng đồng, giữa những trải nghiệm riêng tư và ký ức chung của một thế hệ. Mỗi tác phẩm không chỉ lưu giữ những gì đã qua, mà còn giúp người xem tìm thấy chính mình trong những sắc màu tưởng chừng xa lạnhững cách kể chuyện đa dạng, vượt khỏi giới hạn của ửng hồng của những đứa trẻ vùng cao. Phạm Bình Chương tập trung vào những thay đối của cuộc sống đô thị. Vũ Ngọc Vĩnh vẫn trăn trở về thân phận người phụ nữ hiện đại. Nguyễn Văn Chung chạm đến thế giới siêu thực với \"Địa đàng\".Ở không gian khác của triến lãm, Đoàn Văn Tới tiếp tục khai thác đề tài Phật pháp dưới hình thức gần gũi, trẻ trung hơn trước. Bút pháp của Nguyễn Toán ngày càng chắt lọc kỹ lưỡng về hình, màu và ý tứ. Nguyễn Văn Bảy tìm về góc ao quê như tìm lại sự tĩnh lặng trong tâm hồn. Phật pháp dưới hình thức gần gũi, trẻ trung hơn trước. Bút pháp của Nguyễn Toán ngày càng chắt lọc kỹ lưỡng về hình, màu và ý tứ. Nguyễn Văn Bảy tìm về góc ao quê như tìm lại sự tĩnh lặng trong tâm hồn. Vẽ người, quả và hoa, tranh của Trịnh Lữ vẫn đầy cảm xúc. Lưu Tuyên bước ra khỏi vỏ bọc của nội tâm để đến với \"Thiên đường hoàn hảo\", chấp nhận sự hiển nhiên và hữu hạn của đời người ửng hồng của những đứa trẻ vùng cao. Phạm Bình Chương tập trung vào những thay đối của cuộc sống đô thị. Vũ Ngọc Vĩnh vẫn trăn trở về thân phận người phụ nữ hiện đại. Nguyễn Văn Chung chạm đến thế giới siêu thực với \"Địa đàng\".Ở không gian khác của triến lãm, Đoàn Văn Tới tiếp tục khai thác đề tài Phật pháp dưới hình thức gần gũi, trẻ trung hơn trước. Bút pháp của Nguyễn Toán ngày càng chắt lọc kỹ lưỡng về hình, màu và ý tứ. Nguyễn Văn Bảy tìm về góc ao quê như tìm lại sự tĩnh lặng trong tâm hồn. Phật pháp dưới hình thức gần gũi, trẻ trung hơn trước. Bút pháp của Nguyễn Toán ngày càng chắt lọc kỹ lưỡng về hình, màu và ý tứ. Nguyễn Văn Bảy tìm về góc ao quê như tìm lại sự tĩnh lặng trong tâm hồn. Vẽ người, quả và hoa, tranh của Trịnh Lữ vẫn đầy cảm xúc. Lưu Tuyên bước ra ửng hồng của những đứa trẻ vùng cao. Phạm Bình Chương tập trung vào những thay đối của cuộc sống đô thị. Vũ Ngọc Vĩnh vẫn trăn trở về thân phận người phụ nữ hiện đại. Nguyễn Văn Chung chạm đến thế giới siêu thực với \"Địa đàng\".Ở không gian khác của triến lãm, Đoàn Văn Tới tiếp tục khai thác đề tài Phật pháp dưới hình thức gần gũi, trẻ trung hơn trước. Bút pháp của Nguyễn Toán ngày càng chắt lọc kỹ lưỡng về hình, màu và ý tứ. Nguyễn Văn Bảy tìm về góc ao quê như tìm lại sự tĩnh lặng trong tâm hồn. Phật pháp dưới hình thức gần gũi, trẻ trung hơn trước. Bút pháp của Nguyễn Toán ngày càng chắt lọc kỹ lưỡng về hình, màu và ý tứ. Nguyễn Văn Bảy tìm về góc ao quê như tìm lại sự tĩnh lặng trong tâm hồn. Vẽ người, quả và hoa, tranh của Trịnh Lữ vẫn đầy cảm xúc. Lưu Tuyên bước ra khỏi vỏ bọc của nội tâm để đến với \"Thiên đường hoàn hảo\", chấp nhận sự hiển nhiên và hữu hạn của đời người qua những nét nứt vỡ trên bề mặt sự vật mà anh khăc họa ửng hồng của những đứa trẻ vùng cao. Phạm Bình Chương tập trung vào những thay đối của cuộc sống đô thị. Vũ Ngọc Vĩnh vẫn trăn trở về thân"
+      ],
+      "pullQuote": null,
+      "isLorem": false
+    },
+    {
+      "slug": "du-am-di-san-the-gioi",
+      "title": "Dư âm di sản thế giới",
+      "titleAccent": "di sản thế giới",
+      "page": 7,
+      "featured": false,
+      "sapo": "Di sản không chỉ nằm trong bảo tàng, mà còn sống động qua từng nét vẽ.",
+      "tocBlurb": "Di sản không chỉ nằm trong bảo tàng, mà còn sống động qua từng nét vẽ.",
+      "heroImage": "du-am-di-san-the-gioi-1.jpg",
+      "images": [
+        "du-am-di-san-the-gioi-1.jpg",
+        "du-am-di-san-the-gioi-2.jpg"
+      ],
+      "paragraphs": [
+        "Trong dòng chảy của mỹ thuật Việt Nam đương đại, những chất liệu quen thuộc như sơn mài, lụa và giấy dó đang được các nghệ sĩ tiếp cận bằng nhiều phương thức sáng tạo mới. Không chỉ dừng lại ở việc bảo tồn kỹ thuật truyền thống, họ còn tìm cách mở rộng giới hạn biểu đạt, đưa những giá trị văn hóa lâu đời đến gần hơn với công chúng hôm nay.",
+        "Sự kết hợp giữa kỹ thuật thủ công và tư duy tạo hình hiện đại đã tạo nên những tác phẩm mang diện mạo đa dạng. Có nghệ sĩ khai thác vẻ đẹp trầm mặc của sơn mài qua những lớp màu chồng phủ, có người sử dụng chất liệu lụa để diễn tả cảm xúc mong manh, trong khi một số khác thử nghiệm kết hợp hội họa với sắp đặt và các vật liệu đương đại.",
+        "nhân. Khi được tiếp cận bằng tư duy cởi mở, di sản không chỉ được lưu giữ mà còn tiếp tục vận động trong đời sống nghệ thuật.",
+        "Sự giao thoa giữa cũ và mới vì thế mở ra nhiều khả năng cho hội họa Việt Nam. Mỗi thử nghiệm thành công không chỉ làm phong phú ngôn ngữ tạo hình mà còn góp phần định hình cách công chúng nhìn nhận bản sắc văn hóa trong bối cảnh đương đại.",
+        "Điều đáng chú ý là truyền thống không còn được nhìn nhận như một khuôn mẫu cố định. Thay vào đó, nó trở thành nguồn cảm hứng để nghệ sĩ đối thoại với những vấn đề của xã hội, ký ức cá nhân và sự biến đổi của đời sống đô thị. Những hình ảnh quen thuộc trong văn hóa Việt có thể xuất hiện trong một bố cục tối giản, một bảng màu khác lạ hoặc một cách thể hiện mang tính trừu tượng.",
+        "Tuy nhiên, đổi mới không đồng nghĩa với việc từ bỏ những giá trị cốt lõi. Thách thức đặt ra với người nghệ sĩ là làm thế nào để giữ được tinh thần của chất liệu, đồng thời tạo nên dấu ấn cá nhân Điều đáng chú ý là truyền thống không còn được nhìn nhận như một khuôn mẫu cố định. Thay vào đó, nó trở thành nguồn cảm hứng để nghệ sĩ đối thoại với những vấn đề của xã hội, ký ức cá nhân và sự biến đổi của đời sống đô thị. Những hình ảnh quen thuộc trong văn hóa Việt có thể xuất hiện trong một bố cục tối giản, một bảng màu khác lạ hoặc một cách thể hiện mang tính trừu tượng. Điều đáng chú ý là truyền thống không còn được nhìn nhận như một khuôn mẫu cố định. Thay vào đó, nó trở thành nguồn cảm hứng để nghệ sĩ đối thoại với những vấn đề nhân. Khi được tiếp cận bằng tư duy cởi mở, di sản không chỉ được lưu giữ mà còn tiếp tục vận động trong đời sống nghệ thuật.",
+        "Sự giao thoa giữa cũ và mới vì thế mở ra nhiều khả năng cho hội họa Việt Nam. Mỗi thử nghiệm thành công không chỉ làm phong phú ngôn ngữ tạo hình mà còn góp phần định hình cách công chúng nhìn nhận bản sắc văn hóa trong bối cảnh đương đại.",
+        "Điều đáng chú ý là truyền thống không còn được nhìn nhận như một khuôn mẫu cố định. Thay vào đó, nó trở thành nguồn cảm hứng để nghệ sĩ đối thoại với những vấn đề của xã hội, ký ức cá nhân và sự biến đổi của"
+      ],
+      "pullQuote": null,
+      "isLorem": false
+    },
+    {
+      "slug": "di-san-trong-ngon-ngu-tao-hinh-hom-nay",
+      "title": "Di sản trong ngôn ngữ tạo hình hôm nay",
+      "titleAccent": "Di sản trong ngôn ngữ",
+      "page": 9,
+      "featured": false,
+      "sapo": "Khi giá trị mỹ thuật truyền thống gặp gỡ tư duy sáng tạo hiện đại.",
+      "tocBlurb": "Khi giá trị mỹ thuật truyền thống gặp gỡ tư duy sáng tạo hiện đại.",
+      "heroImage": "di-san-trong-ngon-ngu-tao-hinh-hom-nay-3.jpg",
+      "images": [
+        "di-san-trong-ngon-ngu-tao-hinh-hom-nay-1.jpg",
+        "di-san-trong-ngon-ngu-tao-hinh-hom-nay-2.jpg",
+        "di-san-trong-ngon-ngu-tao-hinh-hom-nay-3.jpg"
+      ],
+      "paragraphs": [
+        "Trong dòng chảy không ngừng của nghệ thuật đương đại, di sản không còn đơn thuần là những giá trị được lưu giữ trong bảo tàng, những công trình kiến trúc cổ hay những hiện vật thuộc về quá khứ. Di sản đang hiện diện trong đời sống hôm nay bằng nhiều hình thức mới, đặc biệt thông qua ngôn ngữ tạo hình – nơi truyền thống được tái hiện, diễn giải và đối thoại với tinh thần thời đại. Từ những hoa văn dân gian, chất liệu thủ công truyền thống đến hình tượng kiến trúc, trang phục và tín ngưỡng bản địa, di sản đang trở thành nguồn cảm hứng quan trọng trong hành trình tìm kiếm bản sắc của nghệ thuật và thiết kế đương đại.",
+        "liệu sáng tạo",
+        "Ngôn ngữ tạo hình là phương thức con người biểu đạt tư duy, cảm xúc và thế giới quan thông qua đường nét, hình khối, màu sắc, bố cục, chất liệu và không gian. Trong nghệ thuật truyền thống Việt Nam, những yếu tố ấy đã được hình thành và phát triển qua nhiều thế hệ, kết tinh trong tranh dân gian Đông Hồ, tranh Hàng Trống, nghệ thuật điêu khắc đình làng, hoa văn trên đồ gốm, kiến trúc cung đình hay các sản phẩm thủ công mỹ nghệ của từng vùng miền.",
+        "Mỗi hình tượng, họa tiết hay màu sắc đều mang trong mình một lớp ý nghĩa văn hóa nhất định. Hình ảnh rồng, phượng, hoa sen, mây nước không chỉ có giá trị trang trí mà còn phản ánh quan niệm về thiên nhiên, con người, tín ngưỡng và trật tự xã hội của người Việt xưa. Chính chiều sâu văn hóa ấy đã tạo nên sức hấp dẫn đặc biệt cho di sản khi được đưa vào các thực hành sáng tạo ngày nay.",
+        "Thay vì sao chép nguyên bản những hình thức cũ, nhiều nghệ sĩ và nhà thiết kế lựa chọn cách tiếp cận di sản bằng tư duy đương đại. Một họa tiết truyền thống có thể được giản lược thành những mảng hình học hiện đại; bảng màu dân gian được biến đổi để phù hợp với ngôn ngữ thị giác mới; chất liệu thủ công được kết hợp cùng công nghệ số, tạo nên những trải nghiệm thẩm mỹ khác biệt. Di sản vì thế không còn đứng yên trong quá khứ mà trở thành một nguồn ngôn ngữ mở, liên tục được làm mới qua từng thế hệ sáng tạo.",
+        "Sự giao thoa giữa bản sắc và tinh thần đương đại",
+        "Trong bối cảnh toàn cầu hóa, khi các xu hướng nghệ thuật và thiết kế có khả năng lan tỏa nhanh chóng giữa các quốc gia, việc tìm kiếm bản sắc riêng trở thành một vấn đề đáng quan tâm. Giữa sự đa dạng của các ngôn ngữ tạo hình quốc tế, di sản văn hóa chính là một trong những yếu tố giúp nghệ thuật Việt Nam tạo nên dấu ấn riêng.",
+        "Có thể nhận thấy điều này qua sự trở lại của các chất liệu và hình ảnh truyền thống trong nhiều lĩnh vực sáng tạo. Thời trang khai thác cấu trúc trang",
+        "Thay vì sao chép nguyên bản những hình thức cũ, nhiều nghệ sĩ và nhà thiết kế lựa chọn cách tiếp cận di sản bằng tư duy đương đại. Một họa tiết truyền thống có thể được giản lược thành những mảng hình học hiện đại; bảng màu dân gian được biến đổi để phù hợp với ngôn ngữ thị giác mới; chất liệu thủ công được kết hợp cùng công nghệ số, tạo nên những trải nghiệm thẩm mỹ khác biệt. Di sản vì thế không còn đứng yên trong quá khứ mà trở thành một nguồn ngôn ngữ mở, liên tục được làm mới qua từng thế hệ sáng tạo.",
+        "Sự giao thoa giữa bản sắc và tinh thần đương đại",
+        "Trong bối cảnh toàn cầu hóa, khi các xu hướng nghệ thuật và thiết kế có khả năng lan tỏa nhanh chóng giữa các quốc gia, việc tìm kiếm bản sắc riêng trở thành một vấn đề đáng quan tâm. Giữa sự đa dạng của các ngôn ngữ tạo",
+        "Trong dòng chảy không ngừng của nghệ thuật đương đại, di sản không còn đơn thuần là những giá trị được lưu giữ trong bảo tàng, những công trình kiến trúc cổ hay những hiện vật thuộc về quá khứ. Di sản đang hiện diện trong đời sống hôm nay bằng nhiều hình thức mới, đặc biệt thông qua ngôn ngữ tạo hình – nơi truyền thống được tái hiện, diễn giải và đối thoại với tinh thần thời đại. Từ những hoa văn dân gian, chất liệu thủ công truyền thống đến hình tượng kiến trúc, trang phục và tín ngưỡng bản địa, di sản đang trở thành nguồn cảm hứng quan trọng trong hành trình tìm kiếm bản sắc của nghệ thuật và thiết kế đương đại.",
+        "Khi truyền thống trở thành chất liệu sáng tạo",
+        "Ngôn ngữ tạo hình là phương thức con người biểu đạt tư duy, cảm xúc và thế giới quan thông qua đường nét, hình khối, màu nơi truyền thống được tái hiện, diễn giải và đối thoại với tinh thần thời đại. Từ những hoa văn dân gian, chất liệu thủ công truyền thống đến hình tượng kiến trúc, trang phục và tín ngưỡng bản địa, di sản đang trở thành nguồn cảm hứng quan trọng trong hành trình tìm kiếm bản sắc của nghệ thuật và thiết kế đương đại.",
+        "Khi truyền thống trở thành chất liệu sáng tạo"
+      ],
+      "pullQuote": null,
+      "isLorem": false
+    },
+    {
+      "slug": "net-viet-trong-tranh-tre",
+      "title": "Nét Việt trong tranh trẻ",
+      "titleAccent": "trong",
+      "page": 11,
+      "featured": false,
+      "sapo": "Văn hóa Việt trong góc nhìn trẻ.",
+      "tocBlurb": "Văn hóa Việt trong góc nhìn trẻ.",
+      "heroImage": "net-viet-trong-tranh-tre-5.jpg",
+      "images": [
+        "net-viet-trong-tranh-tre-1.jpg",
+        "net-viet-trong-tranh-tre-2.jpg",
+        "net-viet-trong-tranh-tre-3.jpg",
+        "net-viet-trong-tranh-tre-4.jpg",
+        "net-viet-trong-tranh-tre-5.jpg",
+        "net-viet-trong-tranh-tre-6.jpg"
+      ],
+      "paragraphs": [
+        "Giữa nhịp sống hiện đại với sự phát triển mạnh mẽ của công nghệ, truyền thông và những xu hướng nghệ thuật toàn cầu, hội họa dành cho thiếu nhi vẫn mang trong mình một thế giới riêng đầy màu sắc, hồn nhiên và giàu cảm xúc. Trong thế giới ấy, hình ảnh quê hương, gia đình, mái trường, những lễ hội truyền thống, cảnh sắc thiên nhiên và đời sống văn hóa dân tộc luôn hiện lên bằng một góc nhìn trong trẻo, mới mẻ. Qua từng nét vẽ, mảng màu và cách sắp đặt hình ảnh, những giá trị Việt Nam được các em tiếp nhận, cảm nhận và thể hiện theo cách rất riêng. Đó cũng chính là nơi nét Việt trong tranh trẻ được hình thành – không chỉ từ những biểu tượng văn hóa quen thuộc mà còn từ tâm hồn, ký ức và cách nhìn thế giới của thế hệ măng non hôm nay.",
+        "Tranh thiếu nhi vốn không bị giới hạn bởi những quy chuẩn chặt chẽ về kỹ thuật hay tư duy tạo hình. Với trẻ nhỏ, hội họa trước hết là một phương tiện để khám phá thế giới, bộc lộ cảm xúc và kể lại tượng. Bởi vậy, mỗi bức tranh thường mang một vẻ đẹp tự nhiên, đôi khi ngộ nghĩnh, đôi khi phá cách, nhưng luôn chứa đựng sự chân thành trong cảm nhận.",
+        "Trong những sáng tác của trẻ, hình ảnh Việt Nam xuất hiện từ những điều gần gũi nhất. Đó có thể là mái nhà ngói đỏ nép mình bên hàng cau, cánh đồng lúa chín trải dài dưới nắng, dòng sông quê với con đò nhỏ, phiên chợ ngày Tết hay hình ảnh ông bà, cha mẹ trong những sinh hoạt thường ngày. Những khung cảnh tưởng chừng bình dị ấy lại trở thành chất liệu phong phú để trẻ tái hiện không gian văn hóa nơi mình sinh sống.",
+        "Đặc biệt, các biểu tượng truyền thống như áo dài, nón lá, hoa sen, trống đồng, múa lân, bánh chưng, cây tre hay hình ảnh chú Cuội, chị Hằng thường xuyên xuất hiện trong tranh vẽ thiếu nhi. Tuy nhiên, điều thú vị là những hình ảnh ấy không được thể hiện theo lối mô phỏng cứng nhắc. Dưới góc nhìn của trẻ, chiếc áo dài có thể mang những gam màu rực rỡ, cây tre có thể cao vút đến tận mép tranh, còn NÉT VIỆT TRONG TRANH TRẺ cao vút đến tận mép tranh, còn ngày hội quê hương có thể trở thành một không gian ngập tràn sắc màu và những hình dáng đầy tưởng tượng.",
+        "Chính sự hồn nhiên ấy khiến các biểu tượng văn hóa truyền thống mang một diện mạo khác. Di sản không còn là những hình ảnh xa xôi được giới thiệu qua sách vở hay những bài học lịch sử, mà trở thành một phần sống động trong thế giới tinh thần của trẻ. Các em không chỉ biết đến văn hóa dân tộc bằng việc ghi nhớ tên gọi, mà còn thể hiện sự gắn bó với văn hóa ấy thông qua cảm xúc và trải nghiệm cá nhân.",
+        "Nét Việt trong tranh trẻ không nhất thiết phải được nhận diện qua những biểu tượng lớn lao hay những hình ảnh mang tính đại diện quốc gia. Đôi khi, bản sắc dân tộc lại hiện diện trong những chi tiết rất nhỏ: một mâm cơm gia đình ngày Tết, chiếc đèn lồng trong đêm Trung thu, bà ngồi têm trầu, mẹ gói bánh chưng hay những đứa trẻ vui đùa dưới sân đình.",
+        "Đây là những hình ảnh phản ánh đời sống văn hóa được lưu chưng, cây tre hay hình ảnh chú Cuội, chị Hằng thường xuyên xuất hiện trong tranh vẽ thiếu nhi. Tuy nhiên, điều thú vị là những hình ảnh ấy không được thể hiện theo lối mô phỏng cứng nhắc. Dưới góc nhìn của trẻ, chiếc áo dài có thể mang những gam màu rực rỡ, cây tre có thể cao vút đến tận mép tranh, còn ngày hội quê hương có thể trở thành một không gian ngập tràn sắc màu và những hình dáng đầy tưởng tượng.",
+        "Chính sự hồn nhiên ấy khiến các biểu tượng văn hóa truyền thống mang một diện mạo khác. Di sản không còn là những hình ảnh xa xôi được giới thiệu qua sách vở hay những bài học lịch sử, mà đời sống văn hóa dân tộc luôn hiện lên bằng một góc nhìn trong trẻo, mới mẻ. Qua từng nét vẽ, mảng màu và cách sắp đặt hình ảnh, những giá trị Việt Nam được các em tiếp nhận, cảm nhận và thể hiện theo cách rất riêng. Đó cũng chính là nơi nét Việt trong tranh trẻ được hình thành – không chỉ từ những biểu tượng văn hóa quen thuộc mà còn từ tâm hồn, ký ức và cách nhìn thế giới của thế hệ măng non hôm nay. Tranh thiếu nhi vốn không bị"
+      ],
+      "pullQuote": null,
+      "isLorem": false
+    },
+    {
+      "slug": "phia-sau-mot-tac-pham",
+      "title": "Phía sau một tác phẩm",
+      "titleAccent": "tác phẩm",
+      "page": 13,
+      "featured": false,
+      "sapo": "Từ những nét phác thảo đầu tiên đến hành trình hoàn thiện tác phẩm.",
+      "tocBlurb": "Từ những nét phác thảo đầu tiên đến hành trình hoàn thiện tác phẩm.",
+      "heroImage": "phia-sau-mot-tac-pham-2.jpg",
+      "images": [
+        "phia-sau-mot-tac-pham-1.jpg",
+        "phia-sau-mot-tac-pham-2.jpg",
+        "phia-sau-mot-tac-pham-3.jpg"
+      ],
+      "paragraphs": [
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in",
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci",
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation",
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."
+      ],
+      "pullQuote": null,
+      "isLorem": true
+    },
+    {
+      "slug": "hoi-tho-truyen-thong-trong-hoi-hoa-duong-dai",
+      "title": "Hơi thở truyền thống trong hội họa đương đại",
+      "titleAccent": "truyền thống",
+      "page": 15,
+      "featured": false,
+      "sapo": "Những giá trị văn hóa xưa được tái hiện qua góc nhìn sáng tạo của các nghệ sĩ hôm nay.",
+      "tocBlurb": "Những giá trị văn hóa xưa được tái hiện qua góc nhìn sáng tạo của các nghệ sĩ hôm nay.",
+      "heroImage": "hoi-tho-truyen-thong-trong-hoi-hoa-duong-dai-1.jpg",
+      "images": [
+        "hoi-tho-truyen-thong-trong-hoi-hoa-duong-dai-1.jpg",
+        "hoi-tho-truyen-thong-trong-hoi-hoa-duong-dai-2.jpg",
+        "hoi-tho-truyen-thong-trong-hoi-hoa-duong-dai-3.jpg"
+      ],
+      "paragraphs": [
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accums an et iusto",
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper",
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros",
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam",
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam"
+      ],
+      "pullQuote": null,
+      "isLorem": true
+    },
+    {
+      "slug": "chat-lieu-ke-chuyen-van-hoa-viet",
+      "title": "Chất liệu kể chuyện văn hóa Việt",
+      "titleAccent": "Chất liệu",
+      "page": 17,
+      "featured": false,
+      "sapo": "Từ sơn mài đến lụa, mỗi chất liệu đều góp phần kể lại những câu chuyện đậm bản sắc Việt.",
+      "tocBlurb": "Từ sơn mài đến lụa, mỗi chất liệu đều góp phần kể lại những câu chuyện đậm bản sắc Việt.",
+      "heroImage": "chat-lieu-ke-chuyen-van-hoa-viet-2.jpg",
+      "images": [
+        "chat-lieu-ke-chuyen-van-hoa-viet-1.jpg",
+        "chat-lieu-ke-chuyen-van-hoa-viet-2.jpg"
+      ],
+      "paragraphs": [
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed",
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed",
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed",
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed"
+      ],
+      "pullQuote": null,
+      "isLorem": true
+    }
+  ]
+}

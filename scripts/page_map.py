@@ -1,0 +1,47 @@
+ARTICLES = [
+    {"slug": "hoi-hoa-viet-nam-duong-dai", "title": "Hội họa Việt Nam đương đại", "titleAccent": "Việt Nam",
+     "pages": [3, 4], "featured": True,
+     "tocBlurb": "Khám phá ngôn ngữ tạo hình và dấu ấn sáng tạo của nghệ sĩ hôm nay."},
+    {"slug": "sac-mau-ki-uc", "title": "Sắc màu kí ức", "titleAccent": "Sắc màu",
+     "pages": [5, 6], "featured": False,
+     "tocBlurb": "Những gam màu cũ, những miền kí ức vẫn còn hiện hữu trong tranh."},
+    {"slug": "du-am-di-san-the-gioi", "title": "Dư âm di sản thế giới", "titleAccent": "di sản thế giới",
+     "pages": [7, 8], "featured": False,
+     "tocBlurb": "Di sản không chỉ nằm trong bảo tàng, mà còn sống động qua từng nét vẽ."},
+    {"slug": "di-san-trong-ngon-ngu-tao-hinh-hom-nay", "title": "Di sản trong ngôn ngữ tạo hình hôm nay",
+     "titleAccent": "Di sản trong ngôn ngữ", "pages": [9, 10], "featured": False,
+     "tocBlurb": "Khi giá trị mỹ thuật truyền thống gặp gỡ tư duy sáng tạo hiện đại."},
+    {"slug": "net-viet-trong-tranh-tre", "title": "Nét Việt trong tranh trẻ", "titleAccent": "trong",
+     "pages": [11, 12], "featured": False,
+     "tocBlurb": "Văn hóa Việt trong góc nhìn trẻ."},
+    {"slug": "phia-sau-mot-tac-pham", "title": "Phía sau một tác phẩm", "titleAccent": "tác phẩm",
+     "pages": [13, 14], "featured": False,
+     "tocBlurb": "Từ những nét phác thảo đầu tiên đến hành trình hoàn thiện tác phẩm."},
+    {"slug": "hoi-tho-truyen-thong-trong-hoi-hoa-duong-dai",
+     "title": "Hơi thở truyền thống trong hội họa đương đại", "titleAccent": "truyền thống",
+     "pages": [15, 16], "featured": False,
+     "tocBlurb": "Những giá trị văn hóa xưa được tái hiện qua góc nhìn sáng tạo của các nghệ sĩ hôm nay."},
+    {"slug": "chat-lieu-ke-chuyen-van-hoa-viet", "title": "Chất liệu kể chuyện văn hóa Việt",
+     "titleAccent": "Chất liệu", "pages": [17, 18], "featured": False,
+     "tocBlurb": "Từ sơn mài đến lụa, mỗi chất liệu đều góp phần kể lại những câu chuyện đậm bản sắc Việt."},
+]
+
+ISSUE = {"number": "034", "period": "1-2/2027", "coverImage": "cover.jpg"}
+
+MASTHEAD = {
+    "board": [
+        {"role": "Tổng biên tập", "names": ["Nguyễn Thị Cẩm Tú"]},
+        {"role": "Phó tổng biên tập", "names": ["Hà Thị Huệ"]},
+        {"role": "Thư ký tòa soạn", "names": ["Nguyễn Thị Tuyết"]},
+        {"role": "Trưởng ban biên tập", "names": ["Trần Việt Anh Cường"]},
+        {"role": "Phó ban biên tập", "names": ["Nguyễn Thị Thùy Linh"]},
+        {"role": "Biên tập", "names": ["Nguyễn Huy Nhật", "Nguyễn Huy Chủ", "Tạ Thị Ngánh"]},
+        {"role": "Ban dịch thuật", "names": ["Nguyễn Thu Đông", "Tạ Thế Tâm"]},
+    ],
+    "publisher": "Nhà xuất bản Tuổi Trẻ",
+    "address": "161B Lý Chính Thắng, Phường Võ Thị Sáu, Quận 1, TP Hồ Chí Minh",
+    "phone": "0982093005",
+    "website": "tapchimithuat.vn",
+    "email": "tapchimythuat.gmail.com",
+    "coverCredit": "Bìa sử dụng tranh của họa sĩ Vũ Đình Tuấn",
+}
