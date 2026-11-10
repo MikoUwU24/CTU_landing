@@ -26,8 +26,11 @@ Run from the repo root with `pnpm --filter cms <script>`, or from `apps/cms`.
 - `seed` / `seed:dry` — import `seed/content.json` and images (`seed:dry` validates without writing)
 - `test` — unit tests (vitest)
 
-Schema push is disabled. Schema changes must go through migrations. In production, pending migrations
-are applied automatically when the server initialises (`prodMigrations`), not during `next build`.
+Schema push is disabled. Schema changes must go through migrations: after `migrate:create`, run
+`migrate` against the target database before deploying the code that needs the new schema
+(migrations are not applied automatically on deploy). The production DB contains a leftover
+dev-push marker row (`payload_migrations` name `dev`, batch -1); `migrate` will ask to confirm —
+answer yes only if the schema matches the latest migration, or delete that row first.
 Never point local `dev`, `migrate` or `seed` at the production database by accident.
 
 ## Deploy (Vercel)

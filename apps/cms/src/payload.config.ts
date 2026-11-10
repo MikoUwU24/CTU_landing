@@ -9,7 +9,6 @@ import { Articles } from './collections/Articles'
 import { Issues } from './collections/Issues'
 import { Media } from './collections/Media'
 import { Users } from './collections/Users'
-import { migrations } from './migrations'
 import { Foreword } from './globals/Foreword'
 import { Masthead } from './globals/Masthead'
 import { RebuildStatus } from './globals/RebuildStatus'
@@ -31,8 +30,10 @@ export default buildConfig({
   typescript: { outputFile: path.resolve(dirname, 'payload-types.ts') },
   db: postgresAdapter({
     pool: { connectionString: process.env.DATABASE_URL || '' },
+    // Schema changes go through migrations, applied manually (`pnpm --filter cms migrate`).
+    // prodMigrations is intentionally off: the production DB carries a dev-push marker
+    // (payload_migrations batch -1) that makes Payload prompt and exit on init.
     push: false,
-    prodMigrations: migrations,
   }),
   sharp,
   ...(process.env.PAYLOAD_PUBLIC_SERVER_URL ? { serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL } : {}),
