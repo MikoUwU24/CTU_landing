@@ -1,0 +1,40 @@
+---
+import '../../styles/article.css'
+import TwoToneTitle from '../../components/TwoToneTitle.astro'
+import Base from '../../layouts/Base.astro'
+import { getArticles } from '../../lib/cms'
+import type { Article } from '../../lib/types'
+
+export async function getStaticPaths() {
+  const articles = await getArticles()
+  return articles.map((article, i) => ({
+    params: { slug: article.slug },
+    props: { article, prev: articles[i - 1], next: articles[i + 1] },
+  }))
+}
+
+interface Props { article: Article; prev?: Article; next?: Article }
+const { article: a, prev, next } = Astro.props
+---
+<Base title={`${a.title} — Tạp chí Mỹ thuật`} description={a.sapo ?? undefined} compactMasthead>
+  <article class="wrap art">
+    <header class="art__head">
+      <div data-testid="article-title">
+        <TwoToneTitle title={a.title} accent={a.titleAccent} kicker={a.kicker} as="h1" size="xl" />
+        {a.author && <p class="eyebrow">{a.author}</p>}
+      </div>
+      {a.sapo && <p class="art__sapo">{a.sapo}</p>}
+    </header>
+    {a.heroImage?.url && (
+      <figure class="art__hero">
+        <img src={a.heroImage.url} alt={a.heroImage.alt} width={a.heroImage.width} height={a.heroImage.height} loading="eager" fetchpriority="high" />
+      </figure>
+    )}
+    <div class="art__body">{a.bodyHtml && <Fragment set:html={a.bodyHtml} />}</div>
+    <p class="art__folio">Mỹ Thuật {a.page}</p>
+    <nav class="art__foot" data-testid="prev-next" aria-label="Bài khác">
+      {prev ? <a href={`/bai/${prev.slug}`} rel="prev">← {prev.title}</a> : <span></span>}
+      {next ? <a href={`/bai/${next.slug}`} rel="next">{next.title} →</a> : <span></span>}
+    </nav>
+  </article>
+</Base>

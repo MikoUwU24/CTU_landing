@@ -1,0 +1,38 @@
+.art { padding-top: 40px; }
+.art__head { display: grid; gap: 20px; margin-bottom: 40px; }
+@media (min-width: 900px) { .art__head { grid-template-columns: 3fr 2fr; align-items: end; } }
+.art__sapo { font-style: italic; font-weight: 600; font-size: var(--step-1); line-height: 1.45; color: var(--maroon); margin: 0; border-left: 4px solid var(--orange); padding-left: 16px; }
+.art__hero { position: relative; margin: 0 0 48px; }
+.art__hero::before { content: ''; position: absolute; inset: -20px 30% 40% -20px; background: var(--beige); z-index: -1; }
+.art__hero img { width: 100%; max-height: 70vh; object-fit: cover; }
+
+.art__body { columns: 1; column-gap: 32px; column-rule: 1px solid color-mix(in srgb, var(--rule) 50%, transparent); text-align: justify; hyphens: auto; }
+@media (min-width: 768px) { .art__body { columns: 2; } }
+@media (min-width: 1200px) { .art__body { columns: 3; } }
+/* Lexical HTML converter wraps content in .payload-richtext; flatten it so column-span works */
+.art__body .payload-richtext { display: contents; }
+.art__body p { margin: 0 0 1em; }
+.art__body > p:first-of-type::first-letter,
+.art__body > .payload-richtext > p:first-of-type::first-letter {
+  float: left; font-family: var(--font-display); font-weight: 700; color: var(--maroon);
+  font-size: 4.2em; line-height: 0.85; padding: 0.05em 0.08em 0 0;
+}
+.art__body h3 {
+  font-family: var(--font-display); font-weight: 700; color: var(--maroon); text-transform: uppercase;
+  font-size: var(--step-1); line-height: 1.15; margin: 1.2em 0 0.5em; break-after: avoid; text-align: left;
+}
+.art__body .fig { break-inside: avoid; margin: 0 0 1.2em; }
+.art__body .fig--full { column-span: all; margin-block: 1.5em; }
+.art__body figcaption { font-size: var(--step--1); font-style: italic; color: var(--ink-soft); margin-top: 6px; }
+.art__body .pullquote {
+  column-span: all; margin: 1.5em auto; max-width: 42ch; text-align: center;
+  font-family: var(--font-display); font-size: var(--step-2); text-transform: uppercase; color: var(--orange); line-height: 1.15;
+}
+.art__body .pullquote p { margin: 0; }
+.art__body .pullquote cite { display: block; font-size: var(--step--1); color: var(--ink-soft); font-style: normal; margin-top: 8px; }
+.art__body .gallery { column-span: all; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); margin-block: 1.5em; }
+.art__body .gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+.art__foot { display: flex; justify-content: space-between; gap: 16px; margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-family: var(--font-display); text-transform: uppercase; }
+.art__foot a { text-decoration: none; color: var(--maroon); max-width: 45%; }
+.art__foot a:hover { color: var(--orange); }
+.art__folio { text-align: right; font-size: var(--step--1); color: var(--ink-soft); margin-top: 12px; }
