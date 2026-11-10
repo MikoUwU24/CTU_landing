@@ -1,0 +1,10 @@
+*.pdf
+*.psd
+seed/images/
+**/node_modules
+**/.next
+**/dist
+**/.astro
+.superpowers/
+test-results/
+playwright-report/
