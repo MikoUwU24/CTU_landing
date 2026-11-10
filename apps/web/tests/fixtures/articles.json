@@ -14,6 +14,7 @@
         "height": 1131
       },
       "page": 3,
+      "issue": 1,
       "featured": true,
       "author": null,
       "bodyHtml": "<div class=\"payload-richtext\"><p>Triển lãm \"Hiện thực +\" vừa diễn ra tại Bảo tàng Mỹ thuật Việt Nam, quy tụ hơn năm mươi bức tranh của các họa sĩ nhiều thế hệ. Các tác phẩm mang đậm dấu ấn cá nhân nhưng vẫn giữ được mạch chung của hội họa Việt Nam: màu sắc rực rỡ, bố cục chặt chẽ và cảm thức về đời sống thường nhật. Người xem có thể đi qua nhiều lớp ký ức, từ phố cổ, làng quê đến những không gian nội tâm lặng lẽ, để thấy mỗi họa sĩ vẫn tìm được lối riêng giữa dòng chảy chung của mỹ thuật đương đại.</p><blockquote class=\"pullquote\"><p>Càng vẽ những điều giản dị.</p></blockquote><p>Đoạn thứ hai có dấu: ắ ặ ẫ ỡ ữ đ.</p><p>Đoạn thứ ba.</p></div>"
@@ -27,6 +28,7 @@
       "sapo": "Những gam màu cũ, những miền kí ức vẫn còn hiện hữu trong tranh.",
       "heroImage": null,
       "page": 5,
+      "issue": 1,
       "featured": false,
       "author": null,
       "bodyHtml": "<div class=\"payload-richtext\"><p>Trong hội họa Việt Nam, kí ức là chất liệu.</p></div>"

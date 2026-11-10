@@ -22,11 +22,16 @@ let articlesCache: Promise<Article[]> | undefined
 
 export function getArticles(): Promise<Article[]> {
   articlesCache ??= (async () => {
-    const data = useFixtures()
-      ? await fixture<{ docs: Article[] }>('articles')
-      : await api<{ docs: Article[] }>('articles', {
-          'where[_status][equals]': 'published', sort: 'page', depth: '1', limit: '200',
-        })
+    let data: { docs: Article[] }
+    if (useFixtures()) {
+      data = await fixture<{ docs: Article[] }>('articles')
+    } else {
+      const issue = await getCurrentIssue()
+      data = await api<{ docs: Article[] }>('articles', {
+        'where[_status][equals]': 'published', sort: 'page', depth: '1', limit: '200',
+        ...(issue?.id != null ? { 'where[issue][equals]': String(issue.id) } : {}),
+      })
+    }
     return [...data.docs].sort((a, b) => a.page - b.page)
   })()
   return articlesCache
@@ -36,11 +41,16 @@ export async function getArticle(slug: string) {
   return (await getArticles()).find((a) => a.slug === slug)
 }
 
-export async function getCurrentIssue(): Promise<Issue | undefined> {
-  const data = useFixtures()
-    ? await fixture<{ docs: Issue[] }>('issues')
-    : await api<{ docs: Issue[] }>('issues', { 'where[isCurrent][equals]': 'true', depth: '1', limit: '1' })
-  return data.docs[0]
+let issueCache: Promise<Issue | undefined> | undefined
+
+export function getCurrentIssue(): Promise<Issue | undefined> {
+  issueCache ??= (async () => {
+    const data = useFixtures()
+      ? await fixture<{ docs: Issue[] }>('issues')
+      : await api<{ docs: Issue[] }>('issues', { 'where[isCurrent][equals]': 'true', depth: '1', limit: '1' })
+    return data.docs[0]
+  })()
+  return issueCache
 }
 
 export const getForeword = () => (useFixtures() ? fixture<Foreword>('foreword') : api<Foreword>('globals/foreword'))
