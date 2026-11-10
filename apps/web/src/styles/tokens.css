@@ -1,0 +1,24 @@
+:root {
+  --cream: #F1DEBE;
+  --cream-deep: #E6CFA8;
+  --maroon: #5C1417;
+  --orange: #ED7D45;
+  --beige: #C9B29B;
+  --ink: #2B2420;
+  --ink-soft: #5A4D44;
+  --rule: #B59C82;
+
+  --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+  --font-body: 'Be Vietnam Pro', system-ui, sans-serif;
+
+  --step--1: clamp(0.83rem, 0.8rem + 0.15vw, 0.9rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.1rem);
+  --step-1: clamp(1.25rem, 1.1rem + 0.6vw, 1.6rem);
+  --step-2: clamp(1.6rem, 1.3rem + 1.4vw, 2.4rem);
+  --step-3: clamp(2.2rem, 1.6rem + 3vw, 4rem);
+  --step-4: clamp(2.8rem, 1.8rem + 5vw, 6rem);
+
+  --gutter: 16px;
+  --max: 1240px;
+}
+@media (min-width: 768px) { :root { --gutter: 32px; } }

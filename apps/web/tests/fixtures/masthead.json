@@ -1,0 +1,10 @@
+{
+  "board": [
+    { "role": "Tổng biên tập", "names": [{ "name": "Nguyễn Thị Cẩm Tú" }] },
+    { "role": "Biên tập", "names": [{ "name": "Nguyễn Huy Nhật" }, { "name": "Tạ Thị Ngánh" }] }
+  ],
+  "publisher": "Nhà xuất bản Tuổi Trẻ",
+  "address": "161B Lý Chính Thắng, Phường Võ Thị Sáu, Quận 1, TP Hồ Chí Minh",
+  "phone": "0982093005", "website": "tapchimithuat.vn", "email": "tapchimythuat.gmail.com",
+  "coverCredit": "Bìa sử dụng tranh của họa sĩ Vũ Đình Tuấn"
+}

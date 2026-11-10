@@ -1,0 +1,16 @@
+{
+  "docs": [
+    {
+      "id": 1, "slug": "hoi-hoa-viet-nam-duong-dai", "title": "Hội họa Việt Nam đương đại", "titleAccent": "Việt Nam",
+      "kicker": null, "sapo": "NDO - Dẫu hòa vào dòng chảy của mỹ thuật đương đại, các họa sĩ vẫn giữ lối riêng.",
+      "heroImage": { "url": "/brand/cover.jpg", "alt": "Tranh minh họa", "width": 1600, "height": 1131 },
+      "page": 3, "featured": true, "author": null,
+      "bodyHtml": "<p>Triển lãm \"Hiện thực +\" vừa diễn ra tại Bảo tàng Mỹ thuật Việt Nam.</p><blockquote class=\"pullquote\"><p>Càng vẽ những điều giản dị.</p></blockquote><p>Đoạn thứ hai có dấu: ắ ặ ẫ ỡ ữ đ.</p><p>Đoạn thứ ba.</p>"
+    },
+    {
+      "id": 2, "slug": "sac-mau-ki-uc", "title": "Sắc màu kí ức", "titleAccent": "Sắc màu", "kicker": null,
+      "sapo": "Những gam màu cũ, những miền kí ức vẫn còn hiện hữu trong tranh.", "heroImage": null,
+      "page": 5, "featured": false, "author": null, "bodyHtml": "<p>Trong hội họa Việt Nam, kí ức là chất liệu.</p>"
+    }
+  ]
+}

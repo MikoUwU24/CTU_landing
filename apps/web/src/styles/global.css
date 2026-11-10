@@ -1,0 +1,25 @@
+@import '@fontsource/oswald/600.css';
+@import '@fontsource/oswald/700.css';
+@import '@fontsource/be-vietnam-pro/400.css';
+@import '@fontsource/be-vietnam-pro/400-italic.css';
+@import '@fontsource/be-vietnam-pro/600.css';
+@import './tokens.css';
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--cream); color: var(--ink);
+  font-family: var(--font-body); font-size: var(--step-0); line-height: 1.65;
+  overflow-x: hidden;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+h1, h2, h3 {
+  font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.01em; line-height: 1.02; color: var(--maroon); margin: 0;
+}
+.wrap { max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+.accent { color: var(--orange); }
+.eyebrow { font-family: var(--font-display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: var(--step--1); color: var(--orange); }
+.rule { border: 0; border-top: 1px solid var(--rule); margin: 0; }
+:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
