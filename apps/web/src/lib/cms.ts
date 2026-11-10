@@ -1,11 +1,11 @@
 import { readFile } from 'node:fs/promises'
+import { resolve } from 'node:path'
 import type { Article, Foreword, Issue, Masthead } from './types'
 
 const useFixtures = () => process.env.CMS_FIXTURES === '1'
-const fixtureDir = new URL('../../tests/fixtures/', import.meta.url)
 
 async function fixture<T>(name: string): Promise<T> {
-  return JSON.parse(await readFile(new URL(`${name}.json`, fixtureDir), 'utf8')) as T
+  return JSON.parse(await readFile(resolve(process.cwd(), 'tests/fixtures', `${name}.json`), 'utf8')) as T
 }
 
 async function api<T>(path: string, params: Record<string, string> = {}): Promise<T> {
