@@ -1,5 +1,6 @@
 import type { CollectionConfig } from 'payload'
 import { isLoggedIn } from '../access'
+import { rebuildAfterChange, rebuildAfterDelete } from '../hooks/triggerRebuild'
 
 export const Issues: CollectionConfig = {
   slug: 'issues',
@@ -18,7 +19,9 @@ export const Issues: CollectionConfig = {
         })
         return doc
       },
+      rebuildAfterChange,
     ],
+    afterDelete: [rebuildAfterDelete],
   },
   fields: [
     { name: 'number', type: 'text', label: 'Số', required: true, unique: true },

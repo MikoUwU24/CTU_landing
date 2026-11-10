@@ -94,10 +94,12 @@ export interface Config {
   globals: {
     foreword: Foreword;
     masthead: Masthead;
+    'rebuild-status': RebuildStatus;
   };
   globalsSelect: {
     foreword: ForewordSelect<false> | ForewordSelect<true>;
     masthead: MastheadSelect<false> | MastheadSelect<true>;
+    'rebuild-status': RebuildStatusSelect<false> | RebuildStatusSelect<true>;
   };
   locale: null;
   widgets: {
@@ -483,6 +485,20 @@ export interface Masthead {
   createdAt?: string | null;
 }
 /**
+ * Kết quả lần gần nhất CMS gọi webhook cập nhật trang báo.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "rebuild-status".
+ */
+export interface RebuildStatus {
+  id: number;
+  lastStatus?: string | null;
+  lastError?: string | null;
+  lastAt?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "foreword_select".
  */
@@ -518,6 +534,18 @@ export interface MastheadSelect<T extends boolean = true> {
   website?: T;
   email?: T;
   coverCredit?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "rebuild-status_select".
+ */
+export interface RebuildStatusSelect<T extends boolean = true> {
+  lastStatus?: T;
+  lastError?: T;
+  lastAt?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

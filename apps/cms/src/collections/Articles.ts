@@ -6,12 +6,14 @@ import { ImageBlock } from '../blocks/ImageBlock'
 import { PullQuote } from '../blocks/PullQuote'
 import { htmlConverters } from '../lib/htmlConverters'
 import { vietnameseSlug } from '../lib/slug'
+import { rebuildAfterChange, rebuildAfterDelete } from '../hooks/triggerRebuild'
 
 export const Articles: CollectionConfig = {
   slug: 'articles',
   labels: { singular: 'Bài viết', plural: 'Bài viết' },
   admin: { useAsTitle: 'title', defaultColumns: ['title', 'page', 'featured', '_status'] },
   versions: { drafts: true },
+  hooks: { afterChange: [rebuildAfterChange], afterDelete: [rebuildAfterDelete] },
   defaultSort: 'page',
   access: { read: publishedOrLoggedIn, create: isLoggedIn, update: isLoggedIn, delete: isLoggedIn },
   fields: [

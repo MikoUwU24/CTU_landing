@@ -1,10 +1,12 @@
 import type { GlobalConfig } from 'payload'
 import { isLoggedIn } from '../access'
+import { rebuildAfterGlobalChange } from '../hooks/triggerRebuild'
 
 export const Masthead: GlobalConfig = {
   slug: 'masthead',
   label: 'Ban biên tập & xuất bản',
   access: { read: () => true, update: isLoggedIn },
+  hooks: { afterChange: [rebuildAfterGlobalChange] },
   fields: [
     {
       name: 'board', type: 'array', label: 'Ban biên tập',

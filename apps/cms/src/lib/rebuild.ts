@@ -1,0 +1,65 @@
+export type RebuildResult = { ok: boolean; status?: number; error?: string; at: string }
+
+type Status = { _status?: string } | null | undefined
+
+export function shouldRebuild(args: { doc: Status; previousDoc?: Status; operation: 'create' | 'update' | 'delete' }): boolean {
+  const now = args.doc?._status
+  const before = args.previousDoc?._status
+  if (args.operation === 'delete') return now === 'published' || now === undefined
+  if (now === undefined && before === undefined) return true // collection/global without drafts
+  return now === 'published' || before === 'published'
+}
+
+export function createRebuildTrigger(opts: {
+  url: () => string | undefined
+  delayMs: number
+  fetchFn?: typeof fetch
+  onResult: (r: RebuildResult) => Promise<void> | void
+  keepAlive?: (p: Promise<unknown>) => void
+}) {
+  const fetchFn = opts.fetchFn ?? fetch
+  let timer: ReturnType<typeof setTimeout> | undefined
+  let resolvePending: (() => void) | undefined
+  let pending: Promise<void> | undefined
+
+  async function fire() {
+    const at = new Date().toISOString()
+    const url = opts.url()
+    let result: RebuildResult
+    if (!url) {
+      result = { ok: false, error: 'Missing env var: WEB_DEPLOY_HOOK_URL', at }
+    } else {
+      try {
+        const res = await fetchFn(url, { method: 'POST' })
+        result = res.ok ? { ok: true, status: res.status, at } : { ok: false, status: res.status, error: await res.text(), at }
+      } catch (e) {
+        result = { ok: false, error: e instanceof Error ? e.message : String(e), at }
+      }
+    }
+    if (!result.ok) console.error('[rebuild] deploy hook failed', result)
+    await opts.onResult(result)
+  }
+
+  function request() {
+    if (timer) clearTimeout(timer)
+    if (!pending) {
+      pending = new Promise<void>((resolve) => { resolvePending = resolve })
+      opts.keepAlive?.(pending)
+    }
+    timer = setTimeout(async () => {
+      timer = undefined
+      const done = resolvePending
+      pending = undefined
+      resolvePending = undefined
+      try {
+        await fire()
+      } catch (e) {
+        console.error('[rebuild] onResult failed', e)
+      } finally {
+        done?.()
+      }
+    }, opts.delayMs)
+  }
+
+  return { request, flush: () => pending ?? Promise.resolve() }
+}
