@@ -1,0 +1,36 @@
+---
+import Base from '../layouts/Base.astro'
+import { getArticles } from '../lib/cms'
+import { splitTitle } from '../lib/title'
+const articles = await getArticles()
+---
+<Base title="Mục lục — Tạp chí Mỹ thuật" compactMasthead>
+  <div class="wrap toc">
+    <h1 class="toc__h">Mục lục</h1>
+    <ol class="toc__list">
+      {articles.map((a) => (
+        <li data-testid="toc-item">
+          <a href={`/bai/${a.slug}`}>
+            <span class="toc__title">
+              {splitTitle(a.title, a.titleAccent).map((p) => (p.accent ? <span class="accent">{p.text}</span> : p.text))}
+            </span>
+            <span class="toc__dots" aria-hidden="true"></span>
+            <span class="toc__page">{a.page}</span>
+          </a>
+          {a.sapo && <p class="toc__sapo">{a.sapo}</p>}
+        </li>
+      ))}
+    </ol>
+  </div>
+</Base>
+<style>
+  .toc { max-width: 820px; padding-top: 40px; }
+  .toc__h { font-size: var(--step-4); margin-bottom: 32px; }
+  .toc__list { list-style: none; padding: 0; margin: 0; display: grid; gap: 28px; }
+  .toc__list a { display: flex; align-items: baseline; gap: 12px; text-decoration: none; }
+  .toc__title { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--step-1); color: var(--maroon); }
+  .toc__dots { flex: 1; border-bottom: 2px dotted var(--rule); transform: translateY(-4px); }
+  .toc__page { font-family: var(--font-display); font-size: var(--step-1); color: var(--orange); }
+  .toc__sapo { margin: 4px 0 0; color: var(--ink-soft); font-size: var(--step--1); }
+  .toc__list a:hover .toc__title { color: var(--orange); }
+</style>
