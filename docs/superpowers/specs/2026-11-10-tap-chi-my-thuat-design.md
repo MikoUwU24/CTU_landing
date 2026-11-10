@@ -112,7 +112,7 @@ Extraction output is reviewed by eye against the PDF before seeding; text cleanu
 
 ## 6. Error handling
 
-- Webhook failure: logged server-side with status/response; the admin shows a non-blocking toast; the next publish retries. No silent swallowing.
+- Webhook failure: logged server-side with status/response and persisted to a read-only `rebuild-status` global (last result, error, time) visible in the admin; the next publish retries. No silent swallowing.
 - Missing env vars (`DATABASE_URL`, `BLOB_READ_WRITE_TOKEN`, `PAYLOAD_SECRET`, `WEB_DEPLOY_HOOK_URL`, `CMS_URL`): fail fast at startup/build with a clear message; DB client is lazily initialized so builds don't crash on import.
 - Astro build when CMS is unreachable: build fails loudly (no fallback to stale data); Vercel keeps previous deployment.
 - Missing media on an article: render without the image, never a broken image.
