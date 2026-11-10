@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
-import type { Article, Foreword, Issue, Masthead, SiteSettings } from './types'
+import type { Article, Foreword, Issue, Masthead } from './types'
 
 const useFixtures = () => process.env.CMS_FIXTURES === '1'
 
@@ -55,23 +55,3 @@ export function getCurrentIssue(): Promise<Issue | undefined> {
 
 export const getForeword = () => (useFixtures() ? fixture<Foreword>('foreword') : api<Foreword>('globals/foreword'))
 export const getMasthead = () => (useFixtures() ? fixture<Masthead>('masthead') : api<Masthead>('globals/masthead'))
-
-export const defaultSiteSettings: SiteSettings = { logoWidthDesktop: 248, logoWidthMobile: 160 }
-
-let settingsCache: Promise<SiteSettings> | undefined
-
-export function getSiteSettings(): Promise<SiteSettings> {
-  settingsCache ??= (async () => {
-    if (useFixtures()) return defaultSiteSettings
-    try {
-      const data = await api<Partial<SiteSettings>>('globals/site-settings')
-      return {
-        logoWidthDesktop: data.logoWidthDesktop ?? defaultSiteSettings.logoWidthDesktop,
-        logoWidthMobile: data.logoWidthMobile ?? defaultSiteSettings.logoWidthMobile,
-      }
-    } catch {
-      return defaultSiteSettings
-    }
-  })()
-  return settingsCache
-}

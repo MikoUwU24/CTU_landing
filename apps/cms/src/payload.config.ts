@@ -12,7 +12,6 @@ import { Users } from './collections/Users'
 import { Foreword } from './globals/Foreword'
 import { Masthead } from './globals/Masthead'
 import { RebuildStatus } from './globals/RebuildStatus'
-import { SiteSettings } from './globals/SiteSettings'
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -25,7 +24,7 @@ function env(name: string): string {
 export default buildConfig({
   admin: { user: Users.slug, importMap: { baseDir: path.resolve(dirname) } },
   collections: [Articles, Issues, Media, Users],
-  globals: [Foreword, Masthead, SiteSettings, RebuildStatus],
+  globals: [Foreword, Masthead, RebuildStatus],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: { outputFile: path.resolve(dirname, 'payload-types.ts') },
