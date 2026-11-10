@@ -1,25 +1,25 @@
 :root {
-  --cream: #F1DEBE;
-  --cream-deep: #E6CFA8;
-  --maroon: #5C1417;
-  --orange: #ED7D45;
-  --orange-text: #9E4217; /* AA (4.9:1) on --cream; use for small orange text */
-  --beige: #C9B29B;
-  --ink: #2B2420;
-  --ink-soft: #5A4D44;
-  --rule: #B59C82;
+  /* Portal palette (measured from the reference news portal) */
+  --bg: #F7F8F9;          /* page background */
+  --box: #FFFFFF;         /* content boxes */
+  --ink: #333333;         /* body text */
+  --ink-soft: #555555;    /* excerpts */
+  --muted: #777777;       /* meta */
+  --line: #ECECEC;        /* light borders */
+  --dash: #CCCCCC;        /* dashed list separators */
+  --nav-bg: #F1F1F1;
+  --orange: #E67A1C;      /* accent: buttons, active menu, section underline */
+  --orange-text: #B35A0C; /* AA (4.9:1) on white; small orange text */
+  --cream-block: #F4EAE2; /* foreword block */
+  --footer-bg: #F4F3EF;
+  --placeholder: #EFE7E1;
 
-  --font-display: 'Oswald', 'Arial Narrow', sans-serif;
-  --font-body: 'Be Vietnam Pro', system-ui, sans-serif;
+  --font-body: 'Roboto', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --font-title: 'Prata', Georgia, 'Times New Roman', serif;
 
-  --step--1: clamp(0.83rem, 0.8rem + 0.15vw, 0.9rem);
-  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.1rem);
-  --step-1: clamp(1.25rem, 1.1rem + 0.6vw, 1.6rem);
-  --step-2: clamp(1.6rem, 1.3rem + 1.4vw, 2.4rem);
-  --step-3: clamp(2.2rem, 1.6rem + 3vw, 4rem);
-  --step-4: clamp(2.8rem, 1.8rem + 5vw, 6rem);
-
-  --gutter: 16px;
-  --max: 1240px;
+  --max: 1200px;
+  --gutter: 15px;
+  --gap: 30px;
+  --main: 790px;
+  --side: 380px;
 }
-@media (min-width: 768px) { :root { --gutter: 32px; } }
