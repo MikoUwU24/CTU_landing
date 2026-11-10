@@ -20,3 +20,11 @@ def test_apply_drop_cap():
 def test_is_lorem():
     assert is_lorem("Lorem ipsum dolor sit amet, consectetuer")
     assert not is_lorem("Triển lãm Hiện thực")
+
+
+def test_clean_block_joins_lowercase_diacritic_after_hyphen():
+    assert clean_block("tạo-\nđương đại") == "tạođương đại"
+
+
+def test_clean_block_keeps_hyphen_before_uppercase_diacritic():
+    assert clean_block("Bắc-\nĐông") == "Bắc- Đông"
