@@ -39,7 +39,7 @@ def classify(block, page_h):
     if font.endswith("PalatinoLinotype-Bold") and 12 <= size <= 14:
         return "lead"
     # 14pt Roman is the intro paragraph that carries the drop cap on some pages
-    if font.endswith("PalatinoLinotype-Roman") and 10.5 <= size <= 14.5:
+    if font.endswith("PalatinoLinotype-Roman") and (10.5 <= size <= 11.5 or 13.5 <= size <= 14.5):
         return "body"
     return None
 
@@ -54,16 +54,28 @@ def reading_order(blocks):
     return sorted(blocks, key=key)
 
 
-def merge_continuations(paragraphs):
-    """Join a paragraph split across a column break: previous one has no
-    sentence-ending punctuation and the next starts with a lowercase letter."""
+TERMINAL = (".", "!", "?", "…", '"', "”", ":")
+
+
+def merge_continuations(items):
+    """items: [(text, col_first)] for ONE page in reading order. A column-top block
+    that starts lowercase continues the previous block when that one has no
+    sentence-ending punctuation (paragraph split by a column break). Blocks that
+    are not at a column top (frame restarts of the filler text) are never merged,
+    and merging never crosses a page."""
     out = []
-    for p in paragraphs:
-        if out and p[:1].islower() and not out[-1].rstrip().endswith((".", "!", "?", "…", "\"", "”", ":")):
-            out[-1] = out[-1].rstrip() + " " + p
+    for text, col_first in items:
+        if out and col_first and text[:1].islower() and not out[-1].rstrip().endswith(TERMINAL):
+            out[-1] = out[-1].rstrip() + " " + text
         else:
-            out.append(p)
+            out.append(text)
     return out
+
+
+def is_heading_fragment(text):
+    """Short unpunctuated block left over after merging: an in-text subheading
+    (e.g. "Khi truyền thống trở thành chất liệu sáng tạo") or its wrapped tail."""
+    return len(text) < 70 and not text.rstrip().endswith(TERMINAL)
 
 
 def dropcap_target(dc_block, blocks):
@@ -102,28 +114,41 @@ def extract_images(doc, page_numbers, img_dir, prefix):
 
 
 def extract_article(doc, meta, img_dir):
-    paragraphs, lead, dropcap = [], None, None
-    pending_cap = None
+    paragraphs, lead, seen = [], None, set()
     for pn in meta["pages"]:
         page = doc[pn - 1]
         blocks = [b for b in page.get_text("dict")["blocks"] if b["type"] == 0]
         typed = [(classify(b, page.rect.height), b) for b in blocks]
         for kind, b in typed:
-            if kind == "dropcap" and dropcap is None:
-                dropcap = b
             if kind == "lead" and lead is None:
                 lead = clean_block(block_text(b))
         ordered = reading_order([b for k, b in typed if k == "body"])
-        cap_idx = dropcap_target(dropcap, ordered) if dropcap is not None and pending_cap is None else None
+        caps = {}
+        for kind, dc in typed:
+            if kind != "dropcap":
+                continue
+            idx = dropcap_target(dc, ordered)
+            if idx is None:  # never silently lose the letter
+                raise ValueError(f"page {pn}: drop cap {block_text(dc).strip()!r} has no body block beside it")
+            caps[idx] = block_text(dc).strip()
+        items, prev_bucket = [], None
         for i, b in enumerate(ordered):
             text = clean_block(block_text(b))
+            bucket = round(b["lines"][0]["bbox"][0] / 50)
+            prev_bucket, was_bucket = bucket, prev_bucket
             if not text:
                 continue
-            if i == cap_idx:
-                text = apply_drop_cap(text, block_text(dropcap).strip())
-                pending_cap = True
-            paragraphs.append(text)
-    paragraphs = merge_continuations(paragraphs)
+            # The print layout re-pastes the same filler at the top of many frames;
+            # a block whose opening was already seen in this article is a restart,
+            # not the continuation of the previous column.
+            key = text[:30]
+            col_first = bucket != was_bucket and key not in seen
+            seen.add(key)
+            if i in caps:
+                text = apply_drop_cap(text, caps[i])
+            items.append((text, col_first))
+        paragraphs.extend(merge_continuations(items))
+    paragraphs = [p for p in paragraphs if not is_heading_fragment(p)]
     images, hero = extract_images(doc, meta["pages"], img_dir, meta["slug"])
     body_is_lorem = bool(paragraphs) and is_lorem(paragraphs[0])
     return {
@@ -131,7 +156,8 @@ def extract_article(doc, meta, img_dir):
         "page": meta["pages"][0], "featured": meta["featured"],
         "sapo": lead or meta["tocBlurb"], "tocBlurb": meta["tocBlurb"],
         "heroImage": hero, "images": images, "paragraphs": paragraphs,
-        "pullQuote": lead, "isLorem": body_is_lorem,
+        # lead is already used as sapo; do not duplicate it as pullQuote
+        "pullQuote": None, "isLorem": body_is_lorem,
     }
 
 

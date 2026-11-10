@@ -42,3 +42,10 @@ def test_images_exist():
     for a in c["articles"]:
         for name in a["images"]:
             assert (img_dir / name).exists(), name
+
+
+def test_no_oversized_paragraphs_or_duplicate_pull_quote():
+    for a in load()["articles"]:
+        assert a["pullQuote"] != a["sapo"] or a["pullQuote"] is None, a["slug"]
+        for p in [] if a["isLorem"] else a["paragraphs"]:
+            assert len(p) < 1500, (a["slug"], len(p))
