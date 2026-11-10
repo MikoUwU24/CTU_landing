@@ -5,8 +5,11 @@ describe('shouldRebuild', () => {
   it('fires when publishing', () => {
     expect(shouldRebuild({ operation: 'update', doc: { _status: 'published' }, previousDoc: { _status: 'draft' } })).toBe(true)
   })
-  it('fires when unpublishing', () => {
-    expect(shouldRebuild({ operation: 'update', doc: { _status: 'draft' }, previousDoc: { _status: 'published' } })).toBe(true)
+  it('fires when unpublishing (main row no longer published)', () => {
+    expect(shouldRebuild({ operation: 'update', doc: { _status: 'draft' }, previousDoc: { _status: 'published' }, publishedNow: false })).toBe(true)
+  })
+  it('skips a draft save over a published doc (main row still published)', () => {
+    expect(shouldRebuild({ operation: 'update', doc: { _status: 'draft' }, previousDoc: { _status: 'published' }, publishedNow: true })).toBe(false)
   })
   it('skips draft-only saves', () => {
     expect(shouldRebuild({ operation: 'update', doc: { _status: 'draft' }, previousDoc: { _status: 'draft' } })).toBe(false)
@@ -63,6 +66,18 @@ describe('createRebuildTrigger', () => {
     t.request()
     await vi.advanceTimersByTimeAsync(10)
     expect(onResult).toHaveBeenCalledWith(expect.objectContaining({ ok: false, error: 'Missing env var: WEB_DEPLOY_HOOK_URL' }))
+  })
+
+  it('resolves the keepAlive promise even when onResult throws', async () => {
+    const keepAlive = vi.fn()
+    const spy = vi.spyOn(console, 'error').mockImplementation(() => {})
+    const fetchFn = vi.fn().mockResolvedValue(new Response('{}', { status: 200 }))
+    const t = createRebuildTrigger({ url: () => 'https://hook', delayMs: 10, fetchFn, onResult: () => { throw new Error('db down') }, keepAlive })
+    t.request()
+    const p = keepAlive.mock.calls[0][0] as Promise<unknown>
+    await vi.advanceTimersByTimeAsync(10)
+    await expect(p).resolves.toBeUndefined()
+    spy.mockRestore()
   })
 
   it('passes the pending promise to keepAlive', () => {

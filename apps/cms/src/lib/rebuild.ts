@@ -2,11 +2,18 @@ export type RebuildResult = { ok: boolean; status?: number; error?: string; at: 
 
 type Status = { _status?: string } | null | undefined
 
-export function shouldRebuild(args: { doc: Status; previousDoc?: Status; operation: 'create' | 'update' | 'delete' }): boolean {
+/**
+ * `publishedNow`: for the ambiguous draft-over-published case (doc 'draft', previousDoc 'published'),
+ * whether the main (published) row is still published after the save. A draft-only save leaves it
+ * published (no rebuild); a real unpublish makes it a draft (rebuild). When omitted, that case is
+ * treated as an unpublish.
+ */
+export function shouldRebuild(args: { doc: Status; previousDoc?: Status; operation: 'create' | 'update' | 'delete'; publishedNow?: boolean }): boolean {
   const now = args.doc?._status
   const before = args.previousDoc?._status
   if (args.operation === 'delete') return now === 'published' || now === undefined
   if (now === undefined && before === undefined) return true // collection/global without drafts
+  if (now === 'draft' && before === 'published' && args.publishedNow === true) return false
   return now === 'published' || before === 'published'
 }
 

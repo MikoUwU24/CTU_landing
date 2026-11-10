@@ -17,9 +17,16 @@ const trigger = createRebuildTrigger({
   },
 })
 
-export const rebuildAfterChange: CollectionAfterChangeHook = ({ doc, previousDoc, operation, req }) => {
+export const rebuildAfterChange: CollectionAfterChangeHook = async ({ collection, doc, previousDoc, operation, req }) => {
   payloadRef = req.payload
-  if (shouldRebuild({ doc, previousDoc, operation })) trigger.request()
+  // Payload passes no draft-save flag to afterChange. A draft save over a published doc and a real
+  // unpublish both look like published -> draft, so read the main row (draft: false) to tell them apart.
+  let publishedNow: boolean | undefined
+  if (doc?._status === 'draft' && previousDoc?._status === 'published') {
+    const main = await req.payload.findByID({ collection: collection.slug, id: doc.id, draft: false, depth: 0, req })
+    publishedNow = (main as { _status?: string })._status === 'published'
+  }
+  if (shouldRebuild({ doc, previousDoc, operation, publishedNow })) trigger.request()
   return doc
 }
 
