@@ -1,0 +1,41 @@
+---
+import { getArticles } from '../lib/cms'
+interface Props { exclude?: string; limit?: number }
+const { exclude, limit = 6 } = Astro.props
+const latest = (await getArticles()).filter((a) => a.slug !== exclude).slice(0, limit)
+---
+<aside class="layout__side side" aria-label="Thanh bên">
+  <div class="box side__logo">
+    <a href="/" aria-label="Tạp chí Mỹ thuật — Trang chủ">
+      <img src="/brand/masthead.webp" width="1349" height="711" alt="Tạp chí Mỹ thuật" loading="lazy" />
+    </a>
+  </div>
+  {latest.length > 0 && (
+    <section class="box side__widget" aria-labelledby="tin-moi-nhat">
+      <h2 id="tin-moi-nhat" class="side__title">Tin mới nhất</h2>
+      <ul class="side__list">
+        {latest.map((a) => (
+          <li>
+            <a href={`/bai/${a.slug}`} class="side__thumb" tabindex="-1">
+              {a.heroImage?.url
+                ? <img src={a.heroImage.url} alt={a.heroImage.alt} width={a.heroImage.width} height={a.heroImage.height} loading="lazy" />
+                : <span class="side__ph thumb-ph"></span>}
+            </a>
+            <a href={`/bai/${a.slug}`} class="side__link clamp-3">{a.title}</a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+</aside>
+<style>
+  .side__logo { padding: 30px 20px; }
+  .side__logo img { width: 100%; max-width: 340px; margin-inline: auto; }
+  .side__widget { padding: 20px 20px 10px; }
+  .side__title { font-size: 20px; font-weight: 500; line-height: 1.6; margin-bottom: 10px; }
+  .side__list { list-style: none; margin: 0; padding: 0; }
+  .side__list li { display: grid; grid-template-columns: 102px minmax(0, 1fr); gap: 18px; align-items: start; padding: 0 0 20px 9px; }
+  .side__thumb img, .side__ph { display: block; width: 102px; height: 77px; object-fit: cover; }
+  .side__link { font-size: 17.6px; line-height: 1.4; color: var(--ink); }
+  .side__link:hover { color: var(--orange-text); }
+</style>

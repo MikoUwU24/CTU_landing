@@ -1,8 +1,8 @@
 ---
 import '../../styles/article.css'
-import TwoToneTitle from '../../components/TwoToneTitle.astro'
+import Sidebar from '../../components/Sidebar.astro'
 import Base from '../../layouts/Base.astro'
-import { getArticles } from '../../lib/cms'
+import { getArticles, getCurrentIssue } from '../../lib/cms'
 import type { Article } from '../../lib/types'
 
 export async function getStaticPaths() {
@@ -15,26 +15,44 @@ export async function getStaticPaths() {
 
 interface Props { article: Article; prev?: Article; next?: Article }
 const { article: a, prev, next } = Astro.props
+const issue = await getCurrentIssue()
 ---
-<Base title={`${a.title} — Tạp chí Mỹ thuật`} description={a.sapo ?? undefined} compactMasthead>
-  <article class="wrap art">
-    <header class="art__head">
-      <div data-testid="article-title">
-        <TwoToneTitle title={a.title} accent={a.titleAccent} kicker={a.kicker} as="h1" size="xl" />
-        {a.author && <p class="eyebrow">{a.author}</p>}
+<Base title={`${a.title} — Tạp chí Mỹ thuật`} description={a.sapo ?? undefined}>
+  <div class="wrap layout">
+    <article class="layout__main box art">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Trang chủ</a> » <a href="/muc-luc">Bài viết</a> » <span aria-current="page">{a.title}</span>
+      </nav>
+      <header class="art__head" data-testid="article-title">
+        {a.kicker && <p class="art__kicker">{a.kicker}</p>}
+        <h1 class="art__title">{a.title}</h1>
+        <p class="art__meta">
+          {issue && (
+            <span class="art__date">
+              <svg viewBox="0 0 16 16" width="11" height="11" aria-hidden="true"><path fill="currentColor" d="M4 0h2v2h4V0h2v2h3v14H1V2h3zM3 6v8h10V6z"/><path fill="currentColor" d="M4 7h2v2H4zm3 0h2v2H7zm3 0h2v2h-2zm-6 3h2v2H4zm3 0h2v2H7z"/></svg>
+              Số {issue.number} · {issue.period}
+            </span>
+          )}
+          {a.author && <span class="art__author">{a.author}</span>}
+        </p>
+      </header>
+      <div class="art__content">
+        {a.sapo && (
+          <p class="art__sapo"><img class="art__sapo-logo" src="/brand/masthead.webp" width="1349" height="711" alt="" aria-hidden="true" />{a.sapo}</p>
+        )}
+        {a.heroImage?.url && (
+          <figure class="art__hero">
+            <img src={a.heroImage.url} alt={a.heroImage.alt} width={a.heroImage.width} height={a.heroImage.height} loading="eager" fetchpriority="high" />
+            {a.heroImage.caption && <figcaption>{a.heroImage.caption}</figcaption>}
+          </figure>
+        )}
+        <div class="art__body">{a.bodyHtml && <Fragment set:html={a.bodyHtml} />}</div>
+        <nav class="art__foot" data-testid="prev-next" aria-label="Bài khác">
+          {prev ? <a href={`/bai/${prev.slug}`} rel="prev">« {prev.title}</a> : <span></span>}
+          {next ? <a href={`/bai/${next.slug}`} rel="next">{next.title} »</a> : <span></span>}
+        </nav>
       </div>
-      {a.sapo && <p class="art__sapo">{a.sapo}</p>}
-    </header>
-    {a.heroImage?.url && (
-      <figure class="art__hero">
-        <img src={a.heroImage.url} alt={a.heroImage.alt} width={a.heroImage.width} height={a.heroImage.height} loading="eager" fetchpriority="high" />
-      </figure>
-    )}
-    <div class="art__body">{a.bodyHtml && <Fragment set:html={a.bodyHtml} />}</div>
-    <p class="art__folio">Mỹ Thuật {a.page}</p>
-    <nav class="art__foot" data-testid="prev-next" aria-label="Bài khác">
-      {prev ? <a href={`/bai/${prev.slug}`} rel="prev">← {prev.title}</a> : <span></span>}
-      {next ? <a href={`/bai/${next.slug}`} rel="next">{next.title} →</a> : <span></span>}
-    </nav>
-  </article>
+    </article>
+    <Sidebar exclude={a.slug} />
+  </div>
 </Base>

@@ -1,29 +1,25 @@
 ---
 import type { Article } from '../lib/types'
-import TwoToneTitle from './TwoToneTitle.astro'
 interface Props { article: Article }
 const { article: a } = Astro.props
 ---
 <article class="feat" data-testid="featured">
-  <a href={`/bai/${a.slug}`} class="feat__link">
-    <div class="feat__media">
-      {a.heroImage?.url
-        ? <img src={a.heroImage.url} alt={a.heroImage.alt} width={a.heroImage.width} height={a.heroImage.height} loading="eager" fetchpriority="high" />
-        : <div class="feat__placeholder" aria-hidden="true"></div>}
-    </div>
-    <div class="feat__text">
-      <TwoToneTitle title={a.title} accent={a.titleAccent} kicker={a.kicker} as="h2" size="md" />
-      {a.sapo && <p class="feat__sapo">{a.sapo}</p>}
-    </div>
+  <a href={`/bai/${a.slug}`} class="feat__media" tabindex="-1">
+    {a.heroImage?.url
+      ? <img src={a.heroImage.url} alt={a.heroImage.alt} width={a.heroImage.width} height={a.heroImage.height} loading="eager" fetchpriority="high" />
+      : <div class="feat__ph thumb-ph"></div>}
   </a>
+  <div class="feat__text">
+    {a.kicker && <p class="feat__kicker">{a.kicker}</p>}
+    <h2 class="feat__title"><a href={`/bai/${a.slug}`}>{a.title}</a></h2>
+    {a.sapo && <p class="feat__sapo clamp-3">{a.sapo}</p>}
+  </div>
 </article>
 <style>
-  .feat__link { display: grid; gap: 12px; text-decoration: none; }
-  .feat__media img, .feat__placeholder { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--beige); }
-  .feat__text :global(.ttitle) { font-size: clamp(1.3rem, 1.1rem + 0.9vw, 1.9rem); }
-  .feat__sapo {
-    margin: 8px 0 0; font-size: var(--step-0); line-height: 1.55; color: var(--ink-soft);
-    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
-  }
-  .feat__link:hover :global(.ttitle) { color: var(--orange-text); }
+  .feat__media { display: block; }
+  .feat__media img, .feat__ph { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .feat__text { padding-top: 12px; }
+  .feat__kicker { margin: 0 0 2px; font-size: 12.8px; text-transform: uppercase; color: var(--orange-text); font-weight: 500; }
+  .feat__title { font-size: 18.4px; font-weight: 500; line-height: 1.3; }
+  .feat__sapo { margin: 2px 0 0; color: var(--ink-soft); }
 </style>

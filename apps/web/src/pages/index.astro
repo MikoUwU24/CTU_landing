@@ -2,6 +2,7 @@
 import ArticleCard from '../components/ArticleCard.astro'
 import FeaturedArticle from '../components/FeaturedArticle.astro'
 import Foreword from '../components/Foreword.astro'
+import Sidebar from '../components/Sidebar.astro'
 import Base from '../layouts/Base.astro'
 import { getArticles, getCurrentIssue } from '../lib/cms'
 
@@ -13,38 +14,62 @@ const side = rest.slice(0, 4)
 const more = rest.slice(4)
 ---
 <Base title="Tạp chí Mỹ thuật — Fine Arts Magazine">
-  <div class="wrap home">
+  <div class="wrap">
     <h1 class="sr-only">{issue ? `Tạp chí Mỹ thuật số ${issue.number}` : 'Tạp chí Mỹ thuật'}</h1>
-    <section class="lead" aria-label="Tin nổi bật">
-      {featured && <div class="lead__main"><FeaturedArticle article={featured} /></div>}
+    <section class="hero" aria-label="Tin nổi bật">
+      {featured && <div class="hero__main"><FeaturedArticle article={featured} /></div>}
       {side.length > 0 && (
-        <div class="lead__side">
-          {side.map((a) => <ArticleCard article={a} compact />)}
+        <div class="hero__side">
+          {side.map((a) => <ArticleCard article={a} variant="tile" eager />)}
         </div>
       )}
     </section>
-    {more.length > 0 && (
-      <section aria-labelledby="trong-so-nay">
-        <h2 id="trong-so-nay" class="home__h">Trong số này</h2>
-        <div class="home__grid">
-          {more.map((a) => <ArticleCard article={a} />)}
-        </div>
-      </section>
-    )}
+
+    <div class="layout home__body">
+      <div class="layout__main home__main">
+        {more.length > 0 && (
+          <section class="box" aria-labelledby="trong-so-nay">
+            <h2 id="trong-so-nay" class="sec-title home__h">Trong số này</h2>
+            <div class="home__grid">
+              {more.map((a) => <ArticleCard article={a} variant="item" />)}
+            </div>
+          </section>
+        )}
+        <section class="box box--pad" aria-labelledby="muc-luc-so">
+          <h2 id="muc-luc-so" class="sec-title">{issue ? `Mục lục số ${issue.number}` : 'Mục lục'}</h2>
+          <ul class="dash-list home__toc">
+            {articles.map((a) => <li><a href={`/bai/${a.slug}`}>{a.title}</a></li>)}
+          </ul>
+          <p class="home__all"><a href="/muc-luc">Xem toàn bộ mục lục »</a></p>
+        </section>
+      </div>
+      <Sidebar limit={5} />
+    </div>
   </div>
   <Foreword />
 </Base>
 <style>
-  .home { display: grid; gap: 40px; padding-top: 24px; padding-bottom: 16px; }
-  .lead { display: grid; gap: 24px; }
-  .lead__side { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; align-content: start; }
-  @media (min-width: 900px) {
-    .lead { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
+  .hero { display: grid; gap: 20px; }
+  .hero__side { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 20px; align-content: start; }
+  @media (min-width: 850px) {
+    .hero { grid-template-columns: minmax(0, 592fr) minmax(0, 592fr); }
   }
-  .home__h {
-    font-size: var(--step-1); margin-bottom: 20px; padding-bottom: 8px;
-    border-bottom: 2px solid var(--maroon);
+  @media (max-width: 549px) {
+    .hero__side { grid-template-columns: minmax(0, 1fr); }
   }
-  .home__grid { display: grid; gap: 28px 20px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  @media (min-width: 900px) { .home__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+  .home__body { margin-top: 30px; }
+  .home__main { display: grid; gap: var(--gap); }
+  .home__h { margin: 0; padding: 16px 20px 6px; }
+  .home__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home__grid > :global(.card) { border-bottom: 1px solid var(--line); }
+  .home__grid > :global(.card:nth-child(odd)) { border-right: 1px solid var(--line); }
+  @media (max-width: 549px) {
+    .home__grid { grid-template-columns: minmax(0, 1fr); }
+    .home__grid > :global(.card:nth-child(odd)) { border-right: 0; }
+  }
+  .home__toc li a { color: var(--ink); }
+  .home__toc li a:hover { color: var(--orange-text); }
+  .home__all { margin: 14px 0 0; font-size: 14px; text-align: right; }
+  .home__all a { color: var(--orange-text); }
 </style>

@@ -1,14 +1,17 @@
 ---
 import Base from '../layouts/Base.astro'
 ---
-<Base title="Không tìm thấy trang — Tạp chí Mỹ thuật" compactMasthead>
-  <div class="wrap nf">
-    <h1>Không tìm thấy trang</h1>
-    <p>Bài viết có thể đã được gỡ hoặc đổi đường dẫn.</p>
-    <p><a href="/">Về trang chủ</a> · <a href="/muc-luc">Xem mục lục</a></p>
+<Base title="Không tìm thấy trang — Tạp chí Mỹ thuật">
+  <div class="wrap">
+    <div class="box nf">
+      <h1>Không tìm thấy trang</h1>
+      <p>Bài viết có thể đã được gỡ hoặc đổi đường dẫn.</p>
+      <p><a href="/">Về trang chủ</a> · <a href="/muc-luc">Xem mục lục</a></p>
+    </div>
   </div>
 </Base>
 <style>
-  .nf { padding-block: 80px; text-align: center; }
-  .nf h1 { font-size: var(--step-3); margin-bottom: 16px; }
+  .nf { padding: 60px 20px; text-align: center; }
+  .nf h1 { font-family: var(--font-title); font-weight: 600; font-size: 27.2px; line-height: 1.6; margin-bottom: 12px; }
+  .nf a { color: var(--orange-text); }
 </style>
