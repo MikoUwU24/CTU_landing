@@ -1,0 +1,21 @@
+---
+import { getForeword } from '../lib/cms'
+const f = await getForeword()
+---
+<section id="loi-ngo" class="fw">
+  <div class="wrap fw__inner">
+    <h2 class="fw__title">{f.title}</h2>
+    <div class="fw__body">
+      {f.bodyHtml && <Fragment set:html={f.bodyHtml} />}
+      {f.signature && <p class="fw__sig">{f.signature}</p>}
+    </div>
+  </div>
+</section>
+<style>
+  .fw { background: var(--cream-deep); padding-block: 56px; margin-top: 64px; }
+  .fw__inner { display: grid; gap: 24px; }
+  @media (min-width: 900px) { .fw__inner { grid-template-columns: 1fr 2fr; } }
+  .fw__title { font-size: var(--step-3); }
+  .fw__body :global(p) { margin: 0 0 1em; max-width: 68ch; }
+  .fw__sig { font-style: italic; color: var(--maroon); }
+</style>
