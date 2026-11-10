@@ -1,34 +1,45 @@
+import path from 'path'
+import { fileURLToPath } from 'url'
+import { buildConfig } from 'payload'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
-import path from 'path'
-import { buildConfig } from 'payload'
-import { fileURLToPath } from 'url'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import sharp from 'sharp'
-
-import { Users } from './collections/Users'
+import { Articles } from './collections/Articles'
+import { Issues } from './collections/Issues'
 import { Media } from './collections/Media'
+import { Users } from './collections/Users'
+import { Foreword } from './globals/Foreword'
+import { Masthead } from './globals/Masthead'
 
-const filename = fileURLToPath(import.meta.url)
-const dirname = path.dirname(filename)
+const dirname = path.dirname(fileURLToPath(import.meta.url))
+
+function env(name: string): string {
+  const v = process.env[name]
+  if (!v) throw new Error(`Missing env var: ${name}`)
+  return v
+}
 
 export default buildConfig({
-  admin: {
-    user: Users.slug,
-    importMap: {
-      baseDir: path.resolve(dirname),
-    },
-  },
-  collections: [Users, Media],
+  admin: { user: Users.slug, importMap: { baseDir: path.resolve(dirname) } },
+  collections: [Articles, Issues, Media, Users],
+  globals: [Foreword, Masthead],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
-  typescript: {
-    outputFile: path.resolve(dirname, 'payload-types.ts'),
-  },
-  db: postgresAdapter({
-    pool: {
-      connectionString: process.env.DATABASE_URL || '',
-    },
-  }),
+  typescript: { outputFile: path.resolve(dirname, 'payload-types.ts') },
+  db: postgresAdapter({ pool: { connectionString: process.env.DATABASE_URL || '' } }),
   sharp,
-  plugins: [],
+  cors: '*',
+  plugins: [
+    vercelBlobStorage({
+      enabled: Boolean(process.env.BLOB_READ_WRITE_TOKEN),
+      collections: { media: { disablePayloadAccessControl: true } },
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+      clientUploads: true,
+    }),
+  ],
+  onInit: async () => {
+    env('PAYLOAD_SECRET')
+    env('DATABASE_URL')
+  },
 })
