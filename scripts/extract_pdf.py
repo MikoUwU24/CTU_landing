@@ -57,25 +57,54 @@ def reading_order(blocks):
 TERMINAL = (".", "!", "?", "…", '"', "”", ":")
 
 
-def merge_continuations(items):
-    """items: [(text, col_first)] for ONE page in reading order. A column-top block
-    that starts lowercase continues the previous block when that one has no
-    sentence-ending punctuation (paragraph split by a column break). Blocks that
-    are not at a column top (frame restarts of the filler text) are never merged,
-    and merging never crosses a page."""
-    out = []
-    for text, col_first in items:
-        if out and col_first and text[:1].islower() and not out[-1].rstrip().endswith(TERMINAL):
+HEADING_PREFIX = "## "
+
+
+def assemble_page(items):
+    """items: [(text, bucket, n_lines, col_first)] for ONE page in reading order;
+    returns paragraph strings, subheadings prefixed with "## ".
+
+    Heading: a short (<= 2 lines, < 70 chars), unpunctuated, isolated block. It is
+    NOT a heading (stays body) when it is the tail of a truncated frame, i.e. the
+    previous block in the same column has no terminal punctuation, or when the next
+    block continues it across a column break.
+    Continuation: a column-top block that starts lowercase continues the previous
+    body block if that has no terminal punctuation. Headings never merge, blocks
+    that are not at a column top (frame restarts) never merge, nothing crosses a page."""
+    def continues(prev_text, nxt):
+        return nxt[3] and nxt[0][:1].islower() and not prev_text.rstrip().endswith(TERMINAL)
+
+    heading = []
+    for i, (text, bucket, n_lines, _cf) in enumerate(items):
+        short = n_lines <= 2 and len(text) < 70 and not text.rstrip().endswith(TERMINAL)
+        tail_of_frame = i > 0 and items[i - 1][1] == bucket and not items[i - 1][0].rstrip().endswith(TERMINAL)
+        continued_next = i + 1 < len(items) and continues(text, items[i + 1])
+        heading.append(short and not tail_of_frame and not continued_next)
+
+    out, out_is_heading = [], []
+    for i, item in enumerate(items):
+        text = item[0]
+        if heading[i]:
+            out.append(HEADING_PREFIX + text)
+            out_is_heading.append(True)
+        elif out and not out_is_heading[-1] and continues(out[-1], item):
             out[-1] = out[-1].rstrip() + " " + text
         else:
             out.append(text)
+            out_is_heading.append(False)
     return out
 
 
-def is_heading_fragment(text):
-    """Short unpunctuated block left over after merging: an in-text subheading
-    (e.g. "Khi truyền thống trở thành chất liệu sáng tạo") or its wrapped tail."""
-    return len(text) < 70 and not text.rstrip().endswith(TERMINAL)
+def resolve_dropcaps(dropcaps, ordered, page_no):
+    """dropcaps: drop-cap blocks of a page; ordered: body blocks in reading order.
+    Returns {body index: letter}; raises if a drop cap has no body block beside it."""
+    caps = {}
+    for dc in dropcaps:
+        idx = dropcap_target(dc, ordered)
+        if idx is None:  # never silently lose the letter
+            raise ValueError(f"page {page_no}: drop cap {block_text(dc).strip()!r} has no body block beside it")
+        caps[idx] = block_text(dc).strip()
+    return caps
 
 
 def dropcap_target(dc_block, blocks):
@@ -123,14 +152,7 @@ def extract_article(doc, meta, img_dir):
             if kind == "lead" and lead is None:
                 lead = clean_block(block_text(b))
         ordered = reading_order([b for k, b in typed if k == "body"])
-        caps = {}
-        for kind, dc in typed:
-            if kind != "dropcap":
-                continue
-            idx = dropcap_target(dc, ordered)
-            if idx is None:  # never silently lose the letter
-                raise ValueError(f"page {pn}: drop cap {block_text(dc).strip()!r} has no body block beside it")
-            caps[idx] = block_text(dc).strip()
+        caps = resolve_dropcaps([dc for k, dc in typed if k == "dropcap"], ordered, pn)
         items, prev_bucket = [], None
         for i, b in enumerate(ordered):
             text = clean_block(block_text(b))
@@ -146,11 +168,11 @@ def extract_article(doc, meta, img_dir):
             seen.add(key)
             if i in caps:
                 text = apply_drop_cap(text, caps[i])
-            items.append((text, col_first))
-        paragraphs.extend(merge_continuations(items))
-    paragraphs = [p for p in paragraphs if not is_heading_fragment(p)]
+            items.append((text, bucket, len(b["lines"]), col_first))
+        paragraphs.extend(assemble_page(items))
     images, hero = extract_images(doc, meta["pages"], img_dir, meta["slug"])
-    body_is_lorem = bool(paragraphs) and is_lorem(paragraphs[0])
+    body = [p for p in paragraphs if not p.startswith(HEADING_PREFIX)]
+    body_is_lorem = bool(body) and is_lorem(body[0])
     return {
         "slug": meta["slug"], "title": meta["title"], "titleAccent": meta["titleAccent"],
         "page": meta["pages"][0], "featured": meta["featured"],

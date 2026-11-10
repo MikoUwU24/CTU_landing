@@ -13,14 +13,18 @@ def test_has_eight_articles_in_page_order():
     assert [a["page"] for a in arts] == [3, 5, 7, 9, 11, 13, 15, 17]
 
 
+def body(a):
+    return [p for p in a["paragraphs"] if not p.startswith("## ")]
+
+
 def test_real_articles_have_body_and_lorem_flagged():
     for a in load()["articles"]:
-        assert len(a["paragraphs"]) >= 3, a["slug"]
+        assert len(body(a)) >= 3, a["slug"]
         assert a["isLorem"] == (a["page"] >= 13), a["slug"]
 
 
 def test_first_article_starts_with_drop_cap_word():
-    first = load()["articles"][0]["paragraphs"][0]
+    first = body(load()["articles"][0])[0]
     assert first.startswith("Triển lãm"), first[:40]
 
 
@@ -47,5 +51,5 @@ def test_images_exist():
 def test_no_oversized_paragraphs_or_duplicate_pull_quote():
     for a in load()["articles"]:
         assert a["pullQuote"] != a["sapo"] or a["pullQuote"] is None, a["slug"]
-        for p in [] if a["isLorem"] else a["paragraphs"]:
+        for p in [] if a["isLorem"] else body(a):
             assert len(p) < 1500, (a["slug"], len(p))
