@@ -2,8 +2,8 @@
 import '../styles/global.css'
 import Footer from '../components/Footer.astro'
 import Masthead from '../components/Masthead.astro'
-interface Props { title: string; description?: string; compactMasthead?: boolean }
-const { title, description = 'Tạp chí Mỹ thuật — Fine Arts Magazine, Hội Mỹ thuật Việt Nam', compactMasthead = false } = Astro.props
+interface Props { title: string; description?: string }
+const { title, description = 'Tạp chí Mỹ thuật — Fine Arts Magazine, Hội Mỹ thuật Việt Nam' } = Astro.props
 ---
 <!doctype html>
 <html lang="vi">
@@ -17,8 +17,11 @@ const { title, description = 'Tạp chí Mỹ thuật — Fine Arts Magazine, H�
     <link rel="icon" type="image/png" href="/favicon.png" />
   </head>
   <body>
-    <Masthead compact={compactMasthead} />
-    <main><slot /></main>
+    <Masthead />
+    <main class="site-main"><slot /></main>
     <Footer />
   </body>
 </html>
+<style>
+  .site-main { padding-block: 30px 50px; }
+</style>

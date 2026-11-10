@@ -1,43 +1,76 @@
 ---
-interface Props { compact?: boolean }
-const { compact = false } = Astro.props
+const path = Astro.url.pathname.replace(/\/+$/, '') || '/'
+const items = [
+  { href: '/muc-luc', label: 'Mục lục', active: path === '/muc-luc' },
+  { href: '/#loi-ngo', label: 'Lời ngỏ', active: false },
+  { href: '#ban-bien-tap', label: 'Ban biên tập', active: false },
+]
 ---
-<header class:list={['mh', { 'mh--compact': compact }]}>
-  <img class="mh__cloud mh__cloud--top" src="/brand/cloud-top.webp" width="1143" height="551" alt="" aria-hidden="true" />
-  <img class="mh__cloud mh__cloud--right" src="/brand/cloud-right.webp" width="706" height="396" alt="" aria-hidden="true" />
-  <div class="wrap mh__inner">
-    <a href="/" class="mh__logo" aria-label="Tạp chí Mỹ thuật — Trang chủ">
-      <img src="/brand/masthead.webp" width="1349" height="711" alt="Tạp chí Mỹ thuật — Fine Arts Magazine" />
-    </a>
+<header class="mh">
+  <div class="mh__main">
+    <div class="wrap mh__inner">
+      <a href="/" class="mh__logo" aria-label="Tạp chí Mỹ thuật — Trang chủ">
+        <img src="/brand/masthead.webp" width="1349" height="711" alt="Tạp chí Mỹ thuật — Fine Arts Magazine" />
+      </a>
+      <div class="mh__banner" aria-hidden="true">
+        <img src="/brand/banner.webp" width="1131" height="163" alt="" />
+      </div>
+    </div>
   </div>
   <nav class="mh__bar" aria-label="Chính">
     <div class="wrap mh__nav">
-      <a href="/" class="mh__home" aria-label="Trang chủ">
-        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M12 3 2 12h3v8h5v-6h4v6h5v-8h3z"/></svg>
+      <a href="/" class:list={['mh__home', { 'is-active': path === '/' }]} aria-label="Trang chủ" aria-current={path === '/' ? 'page' : undefined}>
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 3 1.5 12.5h3V21h6v-6h3v6h6v-8.5h3z"/></svg>
       </a>
-      <a href="/">Trang chủ</a>
-      <a href="/muc-luc">Mục lục</a>
-      <a href="/#loi-ngo">Lời ngỏ</a>
+      <ul class="mh__menu">
+        {items.map((it) => (
+          <li><a href={it.href} class:list={{ 'is-active': it.active }} aria-current={it.active ? 'page' : undefined}>{it.label}</a></li>
+        ))}
+      </ul>
+      <a href="/muc-luc" class="mh__search" aria-label="Tìm bài / Mục lục">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" d="M10.5 3a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15zM16 16l5 5"/></svg>
+      </a>
     </div>
   </nav>
 </header>
 <style>
-  .mh { position: relative; overflow: hidden; padding-block: 24px 0; border-bottom: 3px double var(--maroon); }
-  .mh__cloud { position: absolute; pointer-events: none; opacity: 0.9; height: auto; }
-  .mh__cloud--top { top: -40px; left: -60px; width: min(55vw, 560px); }
-  .mh__cloud--right { right: -80px; bottom: -30px; width: min(45vw, 460px); }
-  .mh__inner { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-  .mh__logo img { height: auto; width: clamp(147px, 32vw, 347px); }
-  .mh__bar { position: relative; margin-top: 16px; background: var(--maroon); }
-  .mh__nav {
-    display: flex; align-items: stretch; overflow-x: auto; scrollbar-width: none;
-    font-family: var(--font-display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; font-size: 11px;
+  .mh { background: #fff; }
+  .mh__inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 130px; }
+  .mh__logo { flex: none; }
+  .mh__logo img { width: 220px; height: auto; }
+  .mh__banner { flex: 1 1 auto; max-width: 895px; align-self: stretch; overflow: hidden; clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%); }
+  .mh__banner img { width: 100%; height: 100%; object-fit: cover; object-position: 30% 50%; }
+
+  .mh__bar { background: var(--nav-bg); }
+  .mh__nav { display: flex; align-items: center; height: 40px; gap: 0; }
+  .mh__home {
+    flex: none; display: grid; place-items: center; width: 43px; height: 35px;
+    background: var(--orange); color: #fff;
   }
-  .mh__nav::-webkit-scrollbar { display: none; }
-  .mh__nav a { flex: none; display: flex; align-items: center; padding: 8px 12px; min-height: 32px; text-decoration: none; color: var(--cream); white-space: nowrap; }
-  .mh__nav a:hover { background: color-mix(in srgb, var(--cream) 14%, transparent); }
-  .mh__nav .mh__home { background: var(--orange); color: #fff; padding-inline: 14px; }
-  .mh__nav .mh__home:hover { background: var(--orange-text); }
-  .mh--compact { padding-block: 12px 0; }
-  .mh--compact .mh__logo img { height: auto; width: clamp(107px, 20vw, 200px); }
+  .mh__home:hover { color: #fff; background: #cf6a12; }
+  .mh__menu {
+    flex: 1 1 auto; min-width: 0; display: flex; align-items: center; list-style: none; margin: 0; padding: 0 0 0 0;
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .mh__menu::-webkit-scrollbar { display: none; }
+  .mh__menu li { flex: none; }
+  .mh__menu a {
+    display: block; padding: 0 13px; line-height: 35px; height: 35px; white-space: nowrap;
+    font-size: 12.8px; font-weight: 500; text-transform: uppercase; color: #000;
+  }
+  .mh__menu a:hover { color: var(--orange-text); }
+  .mh__menu a.is-active { background: var(--orange); color: #fff; }
+  .mh__search {
+    flex: none; display: grid; place-items: center; width: 40px; height: 40px; margin-left: 8px;
+    background: var(--orange); color: #fff; border-radius: 0 0 5px 5px; align-self: flex-start;
+  }
+  .mh__search:hover { color: #fff; background: #cf6a12; }
+
+  @media (max-width: 849px) {
+    .mh__inner { height: auto; padding-block: 10px; justify-content: center; }
+    .mh__logo img { width: 160px; }
+    .mh__banner { display: none; }
+    .mh__home { width: 40px; }
+    .mh__menu a { padding: 0 11px; }
+  }
 </style>
