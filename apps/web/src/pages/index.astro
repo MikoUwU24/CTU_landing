@@ -3,14 +3,16 @@ import ArticleCard from '../components/ArticleCard.astro'
 import FeaturedArticle from '../components/FeaturedArticle.astro'
 import Foreword from '../components/Foreword.astro'
 import Base from '../layouts/Base.astro'
-import { getArticles } from '../lib/cms'
+import { getArticles, getCurrentIssue } from '../lib/cms'
 
 const articles = await getArticles()
+const issue = await getCurrentIssue()
 const featured = articles.find((a) => a.featured) ?? articles[0]
 const rest = articles.filter((a) => a !== featured)
 ---
 <Base title="Tạp chí Mỹ thuật — Fine Arts Magazine">
   <div class="wrap home">
+    <h1 class="sr-only">{issue ? `Tạp chí Mỹ thuật số ${issue.number}` : 'Tạp chí Mỹ thuật'}</h1>
     {featured && <FeaturedArticle article={featured} />}
     <hr class="rule" />
     <section aria-labelledby="trong-so-nay">
