@@ -6,25 +6,24 @@ const { article: a } = Astro.props
 ---
 <article class="feat" data-testid="featured">
   <a href={`/bai/${a.slug}`} class="feat__link">
-    {a.heroImage?.url && (
-      <div class="feat__media">
-        <img src={a.heroImage.url} alt={a.heroImage.alt} width={a.heroImage.width} height={a.heroImage.height} loading="eager" fetchpriority="high" />
-      </div>
-    )}
+    <div class="feat__media">
+      {a.heroImage?.url
+        ? <img src={a.heroImage.url} alt={a.heroImage.alt} width={a.heroImage.width} height={a.heroImage.height} loading="eager" fetchpriority="high" />
+        : <div class="feat__placeholder" aria-hidden="true"></div>}
+    </div>
     <div class="feat__text">
-      <p class="eyebrow">Tiêu điểm</p>
-      <TwoToneTitle title={a.title} accent={a.titleAccent} kicker={a.kicker} as="h2" size="xl" />
+      <TwoToneTitle title={a.title} accent={a.titleAccent} kicker={a.kicker} as="h2" size="md" />
       {a.sapo && <p class="feat__sapo">{a.sapo}</p>}
     </div>
   </a>
 </article>
 <style>
-  .feat__link { display: grid; gap: 24px; text-decoration: none; }
-  @media (min-width: 900px) { .feat__link { grid-template-columns: 1.4fr 1fr; align-items: end; } }
-  .feat__media { position: relative; }
-  .feat__media::after { content: ''; position: absolute; inset: 18px -18px -18px 18px; background: var(--beige); z-index: -1; }
-  @media (max-width: 899px) { .feat__media::after { inset: 12px -12px -12px 12px; } }
-  .feat__media img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
-  .feat__sapo { font-style: italic; font-size: var(--step-1); line-height: 1.45; color: var(--ink-soft); margin: 16px 0 0; }
-  .feat__link:hover :global(.ttitle) { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
+  .feat__link { display: grid; gap: 12px; text-decoration: none; }
+  .feat__media img, .feat__placeholder { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--beige); }
+  .feat__text :global(.ttitle) { font-size: clamp(1.3rem, 1.1rem + 0.9vw, 1.9rem); }
+  .feat__sapo {
+    margin: 8px 0 0; font-size: var(--step-0); line-height: 1.55; color: var(--ink-soft);
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .feat__link:hover :global(.ttitle) { color: var(--orange-text); }
 </style>

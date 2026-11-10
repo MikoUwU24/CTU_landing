@@ -9,23 +9,42 @@ const articles = await getArticles()
 const issue = await getCurrentIssue()
 const featured = articles.find((a) => a.featured) ?? articles[0]
 const rest = articles.filter((a) => a !== featured)
+const side = rest.slice(0, 4)
+const more = rest.slice(4)
 ---
 <Base title="Tạp chí Mỹ thuật — Fine Arts Magazine">
   <div class="wrap home">
     <h1 class="sr-only">{issue ? `Tạp chí Mỹ thuật số ${issue.number}` : 'Tạp chí Mỹ thuật'}</h1>
-    {featured && <FeaturedArticle article={featured} />}
-    <hr class="rule" />
-    <section aria-labelledby="trong-so-nay">
-      <h2 id="trong-so-nay" class="home__h">Trong số này</h2>
-      <div class="home__grid">
-        {rest.map((a) => <ArticleCard article={a} />)}
-      </div>
+    <section class="lead" aria-label="Tin nổi bật">
+      {featured && <div class="lead__main"><FeaturedArticle article={featured} /></div>}
+      {side.length > 0 && (
+        <div class="lead__side">
+          {side.map((a) => <ArticleCard article={a} compact />)}
+        </div>
+      )}
     </section>
+    {more.length > 0 && (
+      <section aria-labelledby="trong-so-nay">
+        <h2 id="trong-so-nay" class="home__h">Trong số này</h2>
+        <div class="home__grid">
+          {more.map((a) => <ArticleCard article={a} />)}
+        </div>
+      </section>
+    )}
   </div>
   <Foreword />
 </Base>
 <style>
-  .home { display: grid; gap: 48px; padding-top: 40px; }
-  .home__h { font-size: var(--step-2); margin-bottom: 24px; }
-  .home__grid { display: grid; gap: 40px 32px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+  .home { display: grid; gap: 40px; padding-top: 24px; padding-bottom: 16px; }
+  .lead { display: grid; gap: 24px; }
+  .lead__side { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; align-content: start; }
+  @media (min-width: 900px) {
+    .lead { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
+  }
+  .home__h {
+    font-size: var(--step-1); margin-bottom: 20px; padding-bottom: 8px;
+    border-bottom: 2px solid var(--maroon);
+  }
+  .home__grid { display: grid; gap: 28px 20px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (min-width: 900px) { .home__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 </style>
